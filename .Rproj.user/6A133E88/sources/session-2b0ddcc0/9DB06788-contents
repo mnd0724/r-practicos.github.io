@@ -1,0 +1,79 @@
+
+#ENTREGA 2.2 -----------
+
+pacman::p_load(sjlabelled,
+               dplyr, #Manipulacion de datos
+               stargazer, #Tablas
+               sjmisc, # Tablas
+               summarytools, # Tablas
+               kableExtra, #Tablas
+               sjPlot, #Tablas y gráficos
+               corrplot, # Correlaciones
+               sessioninfo, # Información de la sesión de trabajo
+               ggplot2) # Para la mayoría de los gráficos
+rm(list=ls())       # borrar todos los objetos en el espacio de trabajo
+options(scipen=999) # valores sin notación científica#Cargar base de datos
+
+data <- read_dta("input/ELSOC_W01_v4.01_Stata14.dta")
+View(data)
+dim(data) #2927 428
+names(data)
+
+proc_data <- data %>% select(t06_02,
+                             t06_03,
+                              t06_04, 
+                              m29,
+                             comuna,
+                             region)
+view(proc_data)
+sjmisc::descr(proc_data)
+proc_data <- proc_data %>% rename("sats_conec"=t06_02, # Satisfacción conectividad
+                                  "sats_averde"=t06_03, # Satisfacción área verde
+                                  "sats_limpieza"=t06_04, # Satisfacción Limpieza
+                                  "ingreso"=m29) # Ingresos total del hogar
+
+
+
+names(proc_data)
+proc_data <- proc_data %>% dplyr::filter(region == "Metropolitana") # Filtrar por región (
+proc_data <- filter(proc_data, comuna %in% c("Providencia",
+                                               "Colina",
+                                               "Las Condes",
+                                               "Vitacura",
+                                               "Santiago",
+                                               "Renca",
+                                               "La Pintana",
+                                               "Macul"))
+sjmisc::descr(proc_data,
+              show = c("label","range", "mean", "sd", "NA.prc", "n"))%>%
+  kable(.,"markdown")
+summarytools::dfSummary(proc_data, plain.ascii = FALSE)
+view(dfSummary(proc_data, headings=FALSE)) #Tabla como imagen
+sum(is.na(proc_data))
+proc_data <- proc_data %>%
+  filter_all(all_vars(!is.na(.) & . != -999 & . != -888)) #Filtrar NA'S
+proc_data %>% ggplot(aes(x = sats_conec)) + 
+  geom_bar()
+proc_data %>% ggplot(aes(x = sats_averde)) + 
+  geom_bar()
+proc_data %>% ggplot(aes(x = sats_limpieza)) + 
+  geom_bar()
+
+proc_data %>% ggplot(aes(x = sats_conec)) + 
+  geom_bar(fill = "coral")+
+  labs(title = "Satisfacción Conectividad",
+       x = "Satisfacción Conectividad",
+       y = "Frecuencia")
+
+proc_data %>% ggplot(aes(x = sats_averde)) + 
+  geom_bar(fill = "coral")+
+  labs(title = "Satisfacción área verde",
+       x = "Satisfacción área verde",
+       y = "Frecuencia")
+
+proc_data %>% ggplot(aes(x = sats_limpieza)) + 
+  geom_bar(fill = "coral")+
+  labs(title = "Satisfacción Limpieza",
+       x = "Satisfacción Limpieza",
+       y = "Frecuencia")
+

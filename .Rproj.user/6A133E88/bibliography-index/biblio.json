@@ -1,0 +1,154 @@
+{
+    "sources": [
+        {
+            "DOI": "10.15446/bitacora.v31n1.86855",
+            "URL": "https://revistas.unal.edu.co/index.php/bitacora/article/view/86855",
+            "author": [
+                {
+                    "family": "Rasse",
+                    "given": "Alejandra"
+                },
+                {
+                    "family": "Robles",
+                    "given": "Maria Sarella"
+                },
+                {
+                    "family": "Cáceres Quiero",
+                    "given": "Gonzalo"
+                },
+                {
+                    "family": "Trebilcock",
+                    "given": "Maria Paz"
+                },
+                {
+                    "family": "Sabatini",
+                    "given": "Francisco"
+                }
+            ],
+            "container-title": "Bitácora Urbano Territorial",
+            "id": "rasse2020",
+            "issue": "1",
+            "issued": {
+                "date-parts": [
+                    [
+                        2020,
+                        11,
+                        3
+                    ]
+                ]
+            },
+            "page": "223-235",
+            "title": "Segregaciones: Habitar la periferia popular en santiago, concepción y talca",
+            "title-short": "Segregaciones",
+            "type": "article-journal",
+            "volume": "31"
+        },
+        {
+            "DOI": "10.4067/S0250-71612010000300004",
+            "URL": "http://www.scielo.cl/scielo.php?script=sci_arttext&pid=S0250-71612010000300004&lng=en&nrm=iso&tlng=en",
+            "author": [
+                {
+                    "family": "Reyes Päcke",
+                    "given": "Sonia"
+                },
+                {
+                    "family": "Figueroa Aldunce",
+                    "given": "Isabel Margarita"
+                }
+            ],
+            "container-title": "EURE (Santiago)",
+            "id": "reyespäcke2010",
+            "issue": "109",
+            "issued": {
+                "date-parts": [
+                    [
+                        2010,
+                        12
+                    ]
+                ]
+            },
+            "language": "en",
+            "page": "89-110",
+            "title": "Distribución, superficie y accesibilidad de las áreas verdes en Santiago de Chile",
+            "type": "article-journal",
+            "volume": "36"
+        },
+        {
+            "DOI": "10.4067/s0250-71612001008200002",
+            "author": [
+                {
+                    "family": "Francisco Sabatini"
+                },
+                {
+                    "family": "Sabatini",
+                    "given": "Francisco"
+                },
+                {
+                    "family": "Gonzalo Cáceres"
+                },
+                {
+                    "family": "Cáceres",
+                    "given": "Gonzalo"
+                },
+                {
+                    "family": "Jorge Cerda"
+                },
+                {
+                    "family": "Cerda",
+                    "given": "Jorge"
+                }
+            ],
+            "container-title": "Eure-revista Latinoamericana De Estudios Urbano Regionales",
+            "id": "franciscosabatini2001",
+            "issue": "82",
+            "issued": {
+                "date-parts": [
+                    [
+                        2001,
+                        12,
+                        7
+                    ]
+                ]
+            },
+            "note": "DOI: 10.4067/s0250-71612001008200002 MAG ID: 1966342909",
+            "page": "21-42",
+            "title": "Segregación residencial en las principales ciudades chilenas: Tendencias de las tres últimas décadas y posibles cursos de acción",
+            "title-short": "Segregación residencial en las principales ciudades chilenas",
+            "type": "article-journal",
+            "volume": "27"
+        },
+        {
+            "DOI": "10.3390/su6095876",
+            "URL": "http://www.mdpi.com/2071-1050/6/9/5876",
+            "author": [
+                {
+                    "family": "Aquino",
+                    "given": "Felipe"
+                },
+                {
+                    "family": "Gainza",
+                    "given": "Xabier"
+                }
+            ],
+            "container-title": "Sustainability",
+            "id": "aquino2014",
+            "issue": "9",
+            "issued": {
+                "date-parts": [
+                    [
+                        2014,
+                        9,
+                        2
+                    ]
+                ]
+            },
+            "language": "en",
+            "page": "5876-5897",
+            "title": "Understanding Density in an Uneven City, Santiago de Chile: Implications for Social and Environmental Sustainability",
+            "title-short": "Understanding Density in an Uneven City, Santiago de Chile",
+            "type": "article-journal",
+            "volume": "6"
+        }
+    ],
+    "project_biblios": []
+}

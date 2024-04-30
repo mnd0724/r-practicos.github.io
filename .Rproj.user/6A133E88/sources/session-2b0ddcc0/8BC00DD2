@@ -1,0 +1,32 @@
+{
+    "id": "8BC00DD2",
+    "path": "~/GitHub/r-practicos.github.io/output/entrega22.qmd",
+    "project_path": "output/entrega22.qmd",
+    "type": "quarto_markdown",
+    "hash": "3571070496",
+    "contents": "",
+    "dirty": false,
+    "created": 1714510348667.0,
+    "source_on_save": false,
+    "relative_order": 2,
+    "properties": {
+        "rmdVisualMode": "true",
+        "rmdVisualWrapConfigured": "true",
+        "tempName": "Untitled2",
+        "source_window_id": "",
+        "Source": "Source",
+        "cursorPosition": "24,0",
+        "scrollLine": "0",
+        "docOutlineVisible": "1",
+        "rmdVisualCollapsedChunks": "",
+        "rmdVisualModeLocation": "6322:2215.757568359375"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1714513333,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1714513333672,
+    "read_only": false,
+    "read_only_alternatives": []
+}

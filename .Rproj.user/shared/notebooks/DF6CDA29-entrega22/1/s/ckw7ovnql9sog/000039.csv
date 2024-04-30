@@ -1,0 +1,5 @@
+"0","proc_data %>% ggplot(aes(x = sats_limpieza)) + "
+"0","  geom_bar(fill = ""coral"")+"
+"0","  labs(title = ""Satisfacción Limpieza"","
+"0","       x = ""Satisfacción Limpieza"","
+"0","       y = ""Frecuencia"")"
