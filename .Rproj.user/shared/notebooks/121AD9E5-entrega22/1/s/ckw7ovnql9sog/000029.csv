@@ -1,0 +1,5 @@
+"0","proc_data %>% ggplot(aes(x = sats_conec)) + "
+"0","  geom_bar(fill = ""coral"")+"
+"0","  labs(title = ""Satisfacción Conectividad"","
+"0","       x = ""Satisfacción Conectividad"","
+"0","       y = ""Frecuencia"")"

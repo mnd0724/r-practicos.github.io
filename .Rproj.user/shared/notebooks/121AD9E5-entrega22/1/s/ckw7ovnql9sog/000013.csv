@@ -1,0 +1,47 @@
+"0","summarytools::dfSummary(proc_data, plain.ascii = FALSE)"
+"1","### Data Frame Summary  
+#### proc_data  
+**Label:** Estudio Longitudinal Social de Chile. Ola 2016. Version 4.00 (10/06/2020)  
+**Dimensions:** 230 x 6  
+**Duplicates:** 26  
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+No   Variable                               Label                                      Stats / Values                     Freqs (% of Valid)   Graph                  Valid      Missing  
+---- -------------------------------------- ------------------------------------------ ---------------------------------- -------------------- ---------------------- ---------- ---------
+1    sats_conec\                            Grado de satisfaccion: Conectividad        Mean (sd) : 3.7 (0.8)\             1 :   4 ( 1.7%)\     \                      230\       0\       
+     [haven_labelled, vctrs_vctr, double]                                              min < med < max:\                  2 :  24 (10.4%)\     II \                   (100.0%)   (0.0%)   
+                                                                                       1 < 4 < 5\                         3 :  19 ( 8.3%)\     I \                                        
+                                                                                       IQR (CV) : 0 (0.2)                 4 : 166 (72.2%)\     IIIIIIIIIIIIII \                           
+                                                                                                                          5 :  17 ( 7.4%)      I                                          
+
+2    sats_averde\                           Grado de satisfaccion: Areas verdes y de   Mean (sd) : 3.5 (1)\               1 :   6 ( 2.6%)\     \                      230\       0\       
+     [haven_labelled, vctrs_vctr, double]   recreacion disponibles                     min < med < max:\                  2 :  50 (21.7%)\     IIII \                 (100.0%)   (0.0%)   
+                                                                                       1 < 4 < 5\                         3 :  20 ( 8.7%)\     I \                                        
+                                                                                       IQR (CV) : 1 (0.3)                 4 : 141 (61.3%)\     IIIIIIIIIIII \                             
+                                                                                                                          5 :  13 ( 5.7%)      I                                          
+
+3    sats_limpieza\                         Grado de satisfaccion: Limpieza y          Mean (sd) : 3.2 (1)\               1 :  12 ( 5.2%)\     I \                    230\       0\       
+     [haven_labelled, vctrs_vctr, double]   belleza del barrio                         min < med < max:\                  2 :  66 (28.7%)\     IIIII \                (100.0%)   (0.0%)   
+                                                                                       1 < 4 < 5\                         3 :  35 (15.2%)\     III \                                      
+                                                                                       IQR (CV) : 2 (0.3)                 4 : 108 (47.0%)\     IIIIIIIII \                                
+                                                                                                                          5 :   9 ( 3.9%)                                                 
+
+4    ingreso\                               Ingreso total del hogar (monto)            Mean (sd) : 675784.7 (721871.3)\   59 distinct values   \ \ :\                 230\       0\       
+     [haven_labelled, vctrs_vctr, double]                                              min < med < max:\                                       \ \ : .\               (100.0%)   (0.0%)   
+                                                                                       -999 < 500000 < 3500000\                                . : :\                                     
+                                                                                       IQR (CV) : 687500 (1.1)                                 : : :\                                     
+                                                                                                                                               : : : : . \ \ .                            
+
+5    comuna\                                Comuna                                     1\. Colina\                        57 (24.8%)\          IIII \                 230\       0\       
+     [character]                                                                       2\. La Pintana\                    33 (14.3%)\          II \                   (100.0%)   (0.0%)   
+                                                                                       3\. Las Condes\                    15 ( 6.5%)\          I \                                        
+                                                                                       4\. Macul\                         19 ( 8.3%)\          I \                                        
+                                                                                       5\. Providencia\                   28 (12.2%)\          II \                                       
+                                                                                       6\. Renca\                         17 ( 7.4%)\          I \                                        
+                                                                                       7\. Santiago\                      60 (26.1%)\          IIIII \                                    
+                                                                                       8\. Vitacura                       1 ( 0.4%)                                                       
+
+6    region\                                Region                                     1\. Metropolitana                  230 (100.0%)         IIIIIIIIIIIIIIIIIIII   230\       0\       
+     [character]                                                                                                                                                      (100.0%)   (0.0%)   
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+"

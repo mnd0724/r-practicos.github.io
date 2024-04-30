@@ -1,0 +1,2 @@
+"0","proc_data %>% ggplot(aes(x = sats_limpieza)) + "
+"0","  geom_bar()"
