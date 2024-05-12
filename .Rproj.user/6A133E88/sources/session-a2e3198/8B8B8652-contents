@@ -106,6 +106,126 @@ proc_data %>% ggplot(aes(x = sats_limpieza)) +
 # Entrega 3
 
 ```{r}
+pacman::p_load(sjlabelled,
+               dplyr, #Manipulacion de datos
+               stargazer, #Tablas
+               sjmisc, # Tablas
+               summarytools, # Tablas
+               kableExtra, #Tablas
+               sjPlot, #Tablas y gráficos
+               corrplot, # Correlaciones
+               sessioninfo, # Información de la sesión de trabajo
+               ggplot2,
+               haven,
+               GGally) # Para la mayoría de los gráficos
+rm(list=ls())       # borrar todos los objetos en el espacio de trabajo
+options(scipen=999) # valores sin notación científica#Cargar base de datos
+
+data <- read_dta("input/ELSOC_W01_v4.01_Stata14.dta")
+View(data)
+dim(data) #2927 428
+names(data)
+
+proc_data <- data %>% select(t06_01,
+                             t06_02,
+                             t06_03,
+                             t06_04,
+                             t06_06,
+                             t08,
+                             t10,
+                             t11_04,
+                             m29,
+                             comuna,
+                             region)
+view(proc_data)
+sjmisc::descr(proc_data)
+proc_data <- proc_data %>% rename("sats_seguridad" =t06_01,
+                                  "sats_conectividad"=t06_02, # Satisfacción conectividad
+                                  "sats_averde"=t06_03, # Satisfacción área verde
+                                  "sats_limpieza"=t06_04,# Satisfacción Limpieza
+                                  "sats_colegios"=t06_06, #satisfacción cercanía a colegios de buena calidad 
+                                  "percp_barrio"=t08,
+                                  "percp_seguridad"=t10,
+                                  "frq_vecinosbasura"=t11_04,
+                                  "ingreso"=m29) # Ingresos total del hogar
+
+
+#VER LOS NOMBRES DE LAS VARIABLES
+names(proc_data)
+
+#Filtrar por comunas de la región metropolitana
+proc_data <- proc_data %>% dplyr::filter(region == "Metropolitana") # Filtrar por región (
+proc_data <- filter(proc_data, comuna %in% c("Providencia",
+                                             "Colina",
+                                             "Maipu",
+                                             "Las Condes",
+                                             "Santiago",
+                                             "Puente Alto",
+                                             "La Florida",
+                                             "San Bernardo"))
+view(proc_data)
+
+
+sjmisc::descr(proc_data,
+              show = c("label","range", "mean", "sd", "NA.prc", "n"))%>%
+  kable(.,"markdown")
+summarytools::dfSummary(proc_data, plain.ascii = FALSE)
+view(dfSummary(proc_data, headings=FALSE)) #Tabla como imagen
+sum(is.na(proc_data))
+proc_data <- proc_data %>%
+  filter_all(all_vars(!is.na(.) & . != -999 & . != -888)) #Filtrar NA'S
+
+summarytools::dfSummary(proc_data, plain.ascii = FALSE)
+view(dfSummary(proc_data, headings=FALSE))  #SIN NA´S
+
+#GRÁFICOS
+proc_data %>% ggplot(aes(x = sats_seguridad)) + 
+  geom_bar(fill = "coral")+
+  labs(title = "Satisfacción Seguridad en el Barrio",
+       x = "Satisfacción Seguridad",
+       y = "Frecuencia")
+
+proc_data %>% ggplot(aes(x = sats_conectividad)) + 
+  geom_bar(fill = "coral")+
+  labs(title = "Satisfacción Conectividad",
+       x = "Satisfacción Conectividad",
+       y = "Frecuencia")
+
+proc_data %>% ggplot(aes(x = sats_averde)) + 
+  geom_bar(fill = "coral")+
+  labs(title = "Satisfacción área verde",
+       x = "Satisfacción área verde",
+       y = "Frecuencia")
+
+proc_data %>% ggplot(aes(x = sats_limpieza)) + 
+  geom_bar(fill = "coral")+
+  labs(title = "Satisfacción Limpieza y Belleza en el Barrio",
+       x = "Satisfacción Limpieza",
+       y = "Frecuencia")
+
+proc_data %>% ggplot(aes(x = sats_colegios)) + 
+  geom_bar(fill = "coral")+
+  labs(title = "Satisfacción cercanía a colegios de buena calidad",
+       x = "Satisfacción cercanía a colegios de buena calidad",
+       y = "Frecuencia")
+
+proc_data %>% ggplot(aes(x = percp_barrio)) + 
+  geom_bar(fill = "coral")+
+  labs(title = "Percepción Evaluación del Barrio",
+       x = "Percepción Evaluación del Barrio",
+       y = "Frecuencia")
+
+proc_data %>% ggplot(aes(x = frq_vecinosbasura)) + 
+  geom_bar(fill = "coral")+
+  labs(title = "Satisfacción Limpi",
+       x = "Satisfacción Limpieza",
+       y = "Frecuencia")
+
+
+ggpairs(proc_data)
+
+#2. ENTREGA 3 -----
+
 view(dfSummary(proc_data, headings=FALSE, graph.col = FALSE))
 cor(proc_data$sats_averde, proc_data$ingreso)
 cor(proc_data$sats_conectividad, proc_data$ingreso)

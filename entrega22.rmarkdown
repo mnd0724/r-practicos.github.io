@@ -6,6 +6,7 @@ bibliography: trabajo1.bib
 link-citations: TRUE
 ---
 
+
 ## **La segregación socioespacial dentro de la Región Metropolitana y el acceso a áreas verdes.**
 
 La ciudad de Santiago se caracteriza por su crecimiento exponencial dada la constante migración. Desde el proceso de redistribución espacial local, es decir el movimiento dentro del mismo territorio de la población chilena, hasta la migración internacional. Dentro de los otros factores que caracterizan a la ciudad de Santiago es que la gran parte de la población se concentra en esta zona, siendo así una de las ciudades con mayor densidad dentro de Chile. Esto hace que exista una gran segregación residencial, que se puede definir según Sabatini, [@franciscosabatini2001] como el grado de proximidad espacial o de aglomeración territorial de las familias pertenecientes a un mismo grupo social, sea que éste se defina en términos étnicos, etarios, de preferencias religiosas o socioeconómicos. Según el autor [@franciscosabatini2001] existen tres dimensiones principales: (1) la tendencia de los grupos sociales a concentrarse en algunas áreas de la ciudad (2) la conformación de áreas o barrios socialmente homogéneos y (3) la percepción subjetiva que tienen de la segregación “objetiva” (las dos primeras dimensiones).
@@ -21,6 +22,7 @@ En este trabajo, nos centraremos en cómo la segregación socioespacial es un fa
 Finalmente, las áreas de alta densidad en la periferia carecen de áreas verdes, lo que implica que las políticas de densificación deben equilibrar las tasas de densidad y abordar las diferencias espaciales en la provisión de servicios sociales y comodidades ambientales [@aquino2014]
 
 # Código
+
 
 ```{r}
 pacman::p_load(sjlabelled,
@@ -103,7 +105,9 @@ proc_data %>% ggplot(aes(x = sats_limpieza)) +
 
 ```
 
+
 # Entrega 3
+
 
 ```{r}
 pacman::p_load(sjlabelled,
@@ -296,3 +300,4 @@ psych::alpha(dplyr::select(proc_data, ingreso, comuna, region))
 
              
 ```
+
