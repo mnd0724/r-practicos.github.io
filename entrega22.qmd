@@ -194,5 +194,4 @@ ggplot(proc_data, aes(x = comuna, y = ingreso, fill = comuna)) +
   theme(axis.text.x = element_text(angle = 45, hjust = 1)) +  # Rotar las etiquetas del eje x para mejor legibilidad
   scale_y_continuous(labels = scales::comma)  # Etiquetas personalizadas para los valores reales en el eje y
 
-             
 ```
