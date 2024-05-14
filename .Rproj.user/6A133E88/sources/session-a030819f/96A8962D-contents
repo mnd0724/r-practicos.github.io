@@ -1,115 +1,4 @@
----
-title: "entrega2.2"
-format: html
-editor: visual
-bibliography: trabajo1.bib
-link-citations: TRUE
----
 
-
-## **La segregación socioespacial dentro de la Región Metropolitana y el acceso a áreas verdes.**
-
-La ciudad de Santiago se caracteriza por su crecimiento exponencial dada la constante migración. Desde el proceso de redistribución espacial local, es decir el movimiento dentro del mismo territorio de la población chilena, hasta la migración internacional. Dentro de los otros factores que caracterizan a la ciudad de Santiago es que la gran parte de la población se concentra en esta zona, siendo así una de las ciudades con mayor densidad dentro de Chile. Esto hace que exista una gran segregación residencial, que se puede definir según Sabatini, [@franciscosabatini2001] como el grado de proximidad espacial o de aglomeración territorial de las familias pertenecientes a un mismo grupo social, sea que éste se defina en términos étnicos, etarios, de preferencias religiosas o socioeconómicos. Según el autor [@franciscosabatini2001] existen tres dimensiones principales: (1) la tendencia de los grupos sociales a concentrarse en algunas áreas de la ciudad (2) la conformación de áreas o barrios socialmente homogéneos y (3) la percepción subjetiva que tienen de la segregación “objetiva” (las dos primeras dimensiones).
-
-“La expansión que crea nuevas periferias en la ciudad-región, tanto como la propia transformación de la periferia popular de la ciudad compacta, vinculada al arribo de “barrios cerrados” orientados a hogares de ingresos medios y altos, generan nuevas formas de segregación residencial que difícilmente pueden asimilarse a los efectos y significados de la segregación de gran escala.” [@rasse2020]
-
-Santiago se caracteriza por presentar una segregación a gran escala. Determinado por extensas zonas de pobreza y la notoria aglomeración de los grupos de altos ingresos en una zona definida [@franciscosabatini2001] , esto trae consecuencias poco deseables como, las que afecten en las oportunidades de sus habitantes, la distribución y accesibilidad a las áreas verdes, estigma y discriminación, acceso a establecimientos educacionales de calidad, entre otros. [@rasse2020]
-
-En este trabajo, nos centraremos en cómo la segregación socioespacial es un factor determinante para el acceso a áreas verde dentro de la Región Metropolitana y la gran diferencia que existe entre comunas, teniendo en cuenta que las áreas verdes urbanas son elementos fundamentales para mejorar el bienestar de la población, especialmente en grandes ciudades [@reyespäcke2010] Dentro de la ciudad de Santiago, a pesar de que han existido intentos e inversiones para la recuperación de áreas verdes persisten grandes diferencias entre comunas [@reyespäcke2010] El acceso a áreas verdes tiene una gran importancia social en la población
-
-“Desde el punto de vista social, un mayor tamaño de las áreas verdes –y de los espacios públicos en general– permite la realización de diversas actividades y con ello facilita la presencia simultánea de distintos grupos, por ejemplo niños, adultos y jóvenes.” [@reyespäcke2010]
-
-Finalmente, las áreas de alta densidad en la periferia carecen de áreas verdes, lo que implica que las políticas de densificación deben equilibrar las tasas de densidad y abordar las diferencias espaciales en la provisión de servicios sociales y comodidades ambientales [@aquino2014]
-
-# Código
-
-
-```{r}
-pacman::p_load(sjlabelled,
-               dplyr, #Manipulacion de datos
-               stargazer, #Tablas
-               sjmisc, # Tablas
-               summarytools, # Tablas
-               kableExtra, #Tablas
-               sjPlot, #Tablas y gráficos
-               corrplot, # Correlaciones
-               sessioninfo, # Información de la sesión de trabajo
-               ggplot2,
-               haven) # Para la mayoría de los gráficos
-rm(list=ls())       # borrar todos los objetos en el espacio de trabajo
-options(scipen=999) # valores sin notación científica#Cargar base de datos
-
-data <- read_dta("input/ELSOC_W01_v4.01_Stata14.dta")
-View(data)
-dim(data) #2927 428
-names(data)
-
-proc_data <- data %>% select(t06_02,
-                             t06_03,
-                              t06_04, 
-                              m29,
-                             comuna,
-                             region)
-view(proc_data)
-sjmisc::descr(proc_data)
-proc_data <- proc_data %>% rename("sats_conec"=t06_02, # Satisfacción conectividad
-                                  "sats_averde"=t06_03, # Satisfacción área verde
-                                  "sats_limpieza"=t06_04, # Satisfacción Limpieza
-                                  "ingreso"=m29) # Ingresos total del hogar
-
-
-
-names(proc_data)
-proc_data <- proc_data %>% dplyr::filter(region == "Metropolitana") # Filtrar por región (
-proc_data <- filter(proc_data, comuna %in% c("Providencia",
-                                               "Colina",
-                                               "Las Condes",
-                                               "Vitacura",
-                                               "Santiago",
-                                               "Renca",
-                                               "La Pintana",
-                                               "Macul"))
-sjmisc::descr(proc_data,
-              show = c("label","range", "mean", "sd", "NA.prc", "n"))%>%
-  kable(.,"markdown")
-summarytools::dfSummary(proc_data, plain.ascii = FALSE)
-view(dfSummary(proc_data, headings=FALSE)) #Tabla como imagen
-sum(is.na(proc_data))
-proc_data <- proc_data %>%
-  filter_all(all_vars(!is.na(.) & . != -999 & . != -888)) #Filtrar NA'S
-proc_data %>% ggplot(aes(x = sats_conec)) + 
-  geom_bar()
-proc_data %>% ggplot(aes(x = sats_averde)) + 
-  geom_bar()
-proc_data %>% ggplot(aes(x = sats_limpieza)) + 
-  geom_bar()
-
-proc_data %>% ggplot(aes(x = sats_conec)) + 
-  geom_bar(fill = "coral")+
-  labs(title = "Satisfacción Conectividad",
-       x = "Satisfacción Conectividad",
-       y = "Frecuencia")
-
-proc_data %>% ggplot(aes(x = sats_averde)) + 
-  geom_bar(fill = "coral")+
-  labs(title = "Satisfacción área verde",
-       x = "Satisfacción área verde",
-       y = "Frecuencia")
-
-proc_data %>% ggplot(aes(x = sats_limpieza)) + 
-  geom_bar(fill = "coral")+
-  labs(title = "Satisfacción Limpieza",
-       x = "Satisfacción Limpieza",
-       y = "Frecuencia")
-
-
-```
-
-
-# Entrega 3
-
-
-```{r}
 pacman::p_load(sjlabelled,
                dplyr, #Manipulacion de datos
                stargazer, #Tablas
@@ -167,8 +56,12 @@ proc_data <- filter(proc_data, comuna %in% c("Providencia",
                                              "Puente Alto",
                                              "La Florida",
                                              "San Bernardo"))
-view(proc_data)
 
+#La selección de estas comunas se hace respecto a la cantidad
+#de personas encuestadas, y que sean lo más cercano posible en 
+#en número de personas que participaron.
+
+view(proc_data)
 
 sjmisc::descr(proc_data,
               show = c("label","range", "mean", "sd", "NA.prc", "n"))%>%
@@ -235,17 +128,11 @@ cor(proc_data$sats_averde, proc_data$ingreso)
 cor(proc_data$sats_conectividad, proc_data$ingreso)
 cor(proc_data$sats_limpieza, proc_data$ingreso)
 na.omit(proc_data)
-proc_data2 <- proc_data %>% select(sats_averde,
-                                    sats_conec,
-                                    sats_limpieza) #filtramos solo para tener las variables númericas 
-
 
 #Sabemos que los valores de alfa van desde 0 y 1, cuando los valores
 #son más cercanos a 1, existe una mayor confiabilidad 
 #cuando el valor es mayor a 0.7 se considera como un valor aceptable
 #Observamos que la variable
-view(dfSummary(proc_data2
-, headings=FALSE, graph.col = FALSE))
 
 # Crear un vector con los nombres de las comunas
 nombres_comunas <- c("Providencia", "Colina", "Las Condes", "Puente Alto", "La Florida", "Santiago", "Maipu", "San Bernardo")
@@ -299,5 +186,3 @@ ggplot(proc_data, aes(x = comuna, y = ingreso, fill = comuna)) +
 psych::alpha(dplyr::select(proc_data, ingreso, comuna, region))
 
              
-```
-

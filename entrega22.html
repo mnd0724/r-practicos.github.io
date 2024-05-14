@@ -125,8 +125,8 @@ div.csl-indent {
 <p>“Desde el punto de vista social, un mayor tamaño de las áreas verdes –y de los espacios públicos en general– permite la realización de diversas actividades y con ello facilita la presencia simultánea de distintos grupos, por ejemplo niños, adultos y jóvenes.” <span class="citation" data-cites="reyespäcke2010">(<a href="#ref-reyespäcke2010" role="doc-biblioref">Reyes Päcke and Figueroa Aldunce 2010</a>)</span></p>
 <p>Finalmente, las áreas de alta densidad en la periferia carecen de áreas verdes, lo que implica que las políticas de densificación deben equilibrar las tasas de densidad y abordar las diferencias espaciales en la provisión de servicios sociales y comodidades ambientales <span class="citation" data-cites="aquino2014">(<a href="#ref-aquino2014" role="doc-biblioref">Aquino and Gainza 2014</a>)</span></p>
 </section>
-<section id="código" class="level1">
-<h1>Código</h1>
+<section id="entrega-2" class="level2">
+<h2 class="anchored" data-anchor-id="entrega-2">Entrega 2</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(sjlabelled,</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>               dplyr, <span class="co">#Manipulacion de datos</span></span>
@@ -136,15 +136,16 @@ div.csl-indent {
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>               kableExtra, <span class="co">#Tablas</span></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>               sjPlot, <span class="co">#Tablas y gráficos</span></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>               corrplot, <span class="co"># Correlaciones</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>               sessioninfo, <span class="co"># Información de la sesión de trabajo</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>               sessioninfo, </span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>               ggplot2,</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>               haven) <span class="co"># Para la mayoría de los gráficos</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list=</span><span class="fu">ls</span>())       <span class="co"># borrar todos los objetos en el espacio de trabajo</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">scipen=</span><span class="dv">999</span>) <span class="co"># valores sin notación científica#Cargar base de datos</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_dta</span>(<span class="st">"input/ELSOC_W01_v4.01_Stata14.dta"</span>)</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(data)</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(data) <span class="co">#2927 428</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>               haven,</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>               GGally) <span class="co"># Para la mayoría de los gráficos</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list=</span><span class="fu">ls</span>())       <span class="co"># borrar todos los objetos en el espacio de trabajo</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">scipen=</span><span class="dv">999</span>) <span class="co"># valores sin notación científica#Cargar base de datos</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_dta</span>(<span class="st">"input/ELSOC_W01_v4.01_Stata14.dta"</span>)</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(data)</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(data) <span class="co">#2927 428</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2927  428</code></pre>
 </div>
@@ -258,13 +259,18 @@ div.csl-indent {
 [421] "trabaja_enc"     "motivo_enc"      "exp_campo_enc"   "exp_n_campo_enc"
 [425] "exp_capi_enc"    "exp_n_capi_enc"  "exp_annio_enc"   "capacita_enc"   </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>proc_data <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span> <span class="fu">select</span>(t06_02,</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>                             t06_03,</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>                              t06_04, </span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>                              m29,</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>                             comuna,</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>                             region)</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="fu">view</span>(proc_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>proc_data <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span> <span class="fu">select</span>(t06_01,</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>                             t06_02,</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>                             t06_03,</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>                             t06_04,</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>                             t06_06,</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>                             t08,</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>                             t10,</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>                             t11_04,</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>                             m29,</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>                             comuna,</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>                             region)</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="fu">view</span>(proc_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>x must either be a summarytools object created with freq(), descr(), or a list of summarytools objects created using by()</code></pre>
 </div>
@@ -274,51 +280,78 @@ div.csl-indent {
 ## Basic descriptive statistics
 
     var    type                                                           label
+ t06_01 numeric                     Grado de satisfaccion: Seguridad del barrio
  t06_02 numeric                             Grado de satisfaccion: Conectividad
  t06_03 numeric Grado de satisfaccion: Areas verdes y de recreacion disponibles
  t06_04 numeric            Grado de satisfaccion: Limpieza y belleza del barrio
+ t06_06 numeric   Grado de satisfaccion: Proximidad a colegios de buena calidad
+    t08 numeric                             Percepcion de evaluacion del barrio
+    t10 numeric                              Percepcion de seguridad del barrio
+ t11_04 numeric        Frecuencia: Problemas por vecinos botan basura o similar
     m29 numeric                                 Ingreso total del hogar (monto)
     n NA.prc       mean          sd         se     md    trimmed
+ 2927      0       2.87       16.51       0.31      4       2.87
  2927      0      -0.67       62.11       1.15      4      -0.67
  2927      0       2.18       28.54       0.53      4       2.18
  2927      0       2.25       29.77       0.55      4       2.25
+ 2927      0      -7.17       98.03       1.81      4      -7.17
+ 2927      0      -6.71       94.13       1.74      4      -6.71
+ 2927      0       3.08       16.51       0.31      4       3.08
+ 2927      0       0.91       28.50       0.53      1       0.91
  2927      0 1980741.74 74096130.04 1369569.78 350000 1980741.74
                         range    iqr   skew
+                 893 (-888-5)      2 -53.74
                 1004 (-999-5)      1 -14.38
                  893 (-888-5)      2 -31.13
                 1004 (-999-5)      2 -31.29
+                1004 (-999-5)      1  -9.00
+                 893 (-888-5)      1  -9.26
+                 893 (-888-5)      1 -53.77
+                 893 (-888-5)      2 -31.12
  4000000999 (-999-4000000000) 480000  53.74</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>proc_data <span class="ot">&lt;-</span> proc_data <span class="sc">%&gt;%</span> <span class="fu">rename</span>(<span class="st">"sats_conec"</span><span class="ot">=</span>t06_02, <span class="co"># Satisfacción conectividad</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>                                  <span class="st">"sats_averde"</span><span class="ot">=</span>t06_03, <span class="co"># Satisfacción área verde</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>                                  <span class="st">"sats_limpieza"</span><span class="ot">=</span>t06_04, <span class="co"># Satisfacción Limpieza</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>                                  <span class="st">"ingreso"</span><span class="ot">=</span>m29) <span class="co"># Ingresos total del hogar</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(proc_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>proc_data <span class="ot">&lt;-</span> proc_data <span class="sc">%&gt;%</span> <span class="fu">rename</span>(<span class="st">"sats_seguridad"</span> <span class="ot">=</span>t06_01,</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>                                  <span class="st">"sats_conectividad"</span><span class="ot">=</span>t06_02, <span class="co"># Satisfacción conectividad</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>                                  <span class="st">"sats_averde"</span><span class="ot">=</span>t06_03, <span class="co"># Satisfacción área verde</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>                                  <span class="st">"sats_limpieza"</span><span class="ot">=</span>t06_04,<span class="co"># Satisfacción Limpieza</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>                                  <span class="st">"sats_colegios"</span><span class="ot">=</span>t06_06, <span class="co">#satisfacción cercanía a colegios de buena calidad </span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>                                  <span class="st">"percp_barrio"</span><span class="ot">=</span>t08,</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>                                  <span class="st">"percp_seguridad"</span><span class="ot">=</span>t10,</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>                                  <span class="st">"frq_vecinosbasura"</span><span class="ot">=</span>t11_04,</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>                                  <span class="st">"ingreso"</span><span class="ot">=</span>m29) <span class="co"># Ingresos total del hogar</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="co">#VER LOS NOMBRES DE LAS VARIABLES</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(proc_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "sats_conec"    "sats_averde"   "sats_limpieza" "ingreso"      
-[5] "comuna"        "region"       </code></pre>
+<pre><code> [1] "sats_seguridad"    "sats_conectividad" "sats_averde"      
+ [4] "sats_limpieza"     "sats_colegios"     "percp_barrio"     
+ [7] "percp_seguridad"   "frq_vecinosbasura" "ingreso"          
+[10] "comuna"            "region"           </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>proc_data <span class="ot">&lt;-</span> proc_data <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(region <span class="sc">==</span> <span class="st">"Metropolitana"</span>) <span class="co"># Filtrar por región (</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>proc_data <span class="ot">&lt;-</span> <span class="fu">filter</span>(proc_data, comuna <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Providencia"</span>,</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>                                               <span class="st">"Colina"</span>,</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>                                               <span class="st">"Las Condes"</span>,</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>                                               <span class="st">"Vitacura"</span>,</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>                                               <span class="st">"Santiago"</span>,</span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>                                               <span class="st">"Renca"</span>,</span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>                                               <span class="st">"La Pintana"</span>,</span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>                                               <span class="st">"Macul"</span>))</span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>sjmisc<span class="sc">::</span><span class="fu">descr</span>(proc_data,</span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>              <span class="at">show =</span> <span class="fu">c</span>(<span class="st">"label"</span>,<span class="st">"range"</span>, <span class="st">"mean"</span>, <span class="st">"sd"</span>, <span class="st">"NA.prc"</span>, <span class="st">"n"</span>))<span class="sc">%&gt;%</span></span>
-<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(.,<span class="st">"markdown"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Filtrar por comunas de la región metropolitana</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>proc_data <span class="ot">&lt;-</span> proc_data <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(region <span class="sc">==</span> <span class="st">"Metropolitana"</span>) <span class="co"># Filtrar por región (</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>proc_data <span class="ot">&lt;-</span> <span class="fu">filter</span>(proc_data, comuna <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Providencia"</span>,</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>                                             <span class="st">"Colina"</span>,</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>                                             <span class="st">"Maipu"</span>,</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>                                             <span class="st">"Las Condes"</span>,</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>                                             <span class="st">"Santiago"</span>,</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>                                             <span class="st">"Puente Alto"</span>,</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>                                             <span class="st">"La Florida"</span>,</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>                                             <span class="st">"San Bernardo"</span>))</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="fu">view</span>(proc_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>x must either be a summarytools object created with freq(), descr(), or a list of summarytools objects created using by()</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>sjmisc<span class="sc">::</span><span class="fu">descr</span>(proc_data,</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>              <span class="at">show =</span> <span class="fu">c</span>(<span class="st">"label"</span>,<span class="st">"range"</span>, <span class="st">"mean"</span>, <span class="st">"sd"</span>, <span class="st">"NA.prc"</span>, <span class="st">"n"</span>))<span class="sc">%&gt;%</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(.,<span class="st">"markdown"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="table table-sm table-striped small">
 <colgroup>
 <col style="width: 2%">
-<col style="width: 9%">
-<col style="width: 44%">
+<col style="width: 12%">
+<col style="width: 43%">
 <col style="width: 2%">
 <col style="width: 4%">
 <col style="width: 9%">
@@ -339,114 +372,534 @@ div.csl-indent {
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">3</td>
-<td style="text-align: left;">sats_conec</td>
-<td style="text-align: left;">Grado de satisfaccion: Conectividad</td>
-<td style="text-align: right;">230</td>
+<td style="text-align: left;">9</td>
+<td style="text-align: left;">sats_seguridad</td>
+<td style="text-align: left;">Grado de satisfaccion: Seguridad del barrio</td>
+<td style="text-align: right;">373</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">3.730435</td>
-<td style="text-align: right;">0.8127987</td>
+<td style="text-align: right;">2.997319</td>
+<td style="text-align: right;">1.0612902</td>
 <td style="text-align: left;">4 (1-5)</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">2</td>
-<td style="text-align: left;">sats_averde</td>
-<td style="text-align: left;">Grado de satisfaccion: Areas verdes y de recreacion disponibles</td>
-<td style="text-align: right;">230</td>
+<td style="text-align: left;">7</td>
+<td style="text-align: left;">sats_conectividad</td>
+<td style="text-align: left;">Grado de satisfaccion: Conectividad</td>
+<td style="text-align: right;">373</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">3.456522</td>
-<td style="text-align: right;">0.9780678</td>
+<td style="text-align: right;">3.600536</td>
+<td style="text-align: right;">0.8760246</td>
 <td style="text-align: left;">4 (1-5)</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">4</td>
+<td style="text-align: left;">5</td>
+<td style="text-align: left;">sats_averde</td>
+<td style="text-align: left;">Grado de satisfaccion: Areas verdes y de recreacion disponibles</td>
+<td style="text-align: right;">373</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">3.324397</td>
+<td style="text-align: right;">1.0748193</td>
+<td style="text-align: left;">4 (1-5)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">8</td>
 <td style="text-align: left;">sats_limpieza</td>
 <td style="text-align: left;">Grado de satisfaccion: Limpieza y belleza del barrio</td>
-<td style="text-align: right;">230</td>
+<td style="text-align: right;">373</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">3.156522</td>
-<td style="text-align: right;">1.0497769</td>
+<td style="text-align: right;">3.184987</td>
+<td style="text-align: right;">1.0729268</td>
+<td style="text-align: left;">4 (1-5)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">6</td>
+<td style="text-align: left;">sats_colegios</td>
+<td style="text-align: left;">Grado de satisfaccion: Proximidad a colegios de buena calidad</td>
+<td style="text-align: right;">373</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">-18.142091</td>
+<td style="text-align: right;">139.0128550</td>
+<td style="text-align: left;">1004 (-999-5)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">percp_barrio</td>
+<td style="text-align: left;">Percepcion de evaluacion del barrio</td>
+<td style="text-align: right;">373</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">-1.482574</td>
+<td style="text-align: right;">65.1854908</td>
+<td style="text-align: left;">893 (-888-5)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">4</td>
+<td style="text-align: left;">percp_seguridad</td>
+<td style="text-align: left;">Percepcion de seguridad del barrio</td>
+<td style="text-align: right;">373</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">3.139410</td>
+<td style="text-align: right;">1.0327314</td>
 <td style="text-align: left;">4 (1-5)</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">1</td>
+<td style="text-align: left;">frq_vecinosbasura</td>
+<td style="text-align: left;">Frecuencia: Problemas por vecinos botan basura o similar</td>
+<td style="text-align: right;">373</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2.048257</td>
+<td style="text-align: right;">1.3270666</td>
+<td style="text-align: left;">4 (1-5)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2</td>
 <td style="text-align: left;">ingreso</td>
 <td style="text-align: left;">Ingreso total del hogar (monto)</td>
-<td style="text-align: right;">230</td>
+<td style="text-align: right;">373</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">675784.717391</td>
-<td style="text-align: right;">721871.3309944</td>
-<td style="text-align: left;">3500999 (-999-3500000)</td>
+<td style="text-align: right;">616046.664879</td>
+<td style="text-align: right;">800723.5771724</td>
+<td style="text-align: left;">8000999 (-999-8000000)</td>
 </tr>
 </tbody>
 </table>
 </div>
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>summarytools<span class="sc">::</span><span class="fu">dfSummary</span>(proc_data, <span class="at">plain.ascii =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>summarytools<span class="sc">::</span><span class="fu">dfSummary</span>(proc_data, <span class="at">plain.ascii =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>### Data Frame Summary  
 #### proc_data  
 **Label:** Estudio Longitudinal Social de Chile. Ola 2016. Version 4.00 (10/06/2020)  
-**Dimensions:** 230 x 6  
-**Duplicates:** 26  
+**Dimensions:** 373 x 11  
+**Duplicates:** 9  
 
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-No   Variable                               Label                                      Stats / Values                     Freqs (% of Valid)   Graph                  Valid      Missing  
----- -------------------------------------- ------------------------------------------ ---------------------------------- -------------------- ---------------------- ---------- ---------
-1    sats_conec\                            Grado de satisfaccion: Conectividad        Mean (sd) : 3.7 (0.8)\             1 :   4 ( 1.7%)\     \                      230\       0\       
-     [haven_labelled, vctrs_vctr, double]                                              min &lt; med &lt; max:\                  2 :  24 (10.4%)\     II \                   (100.0%)   (0.0%)   
-                                                                                       1 &lt; 4 &lt; 5\                         3 :  19 ( 8.3%)\     I \                                        
-                                                                                       IQR (CV) : 0 (0.2)                 4 : 166 (72.2%)\     IIIIIIIIIIIIII \                           
-                                                                                                                          5 :  17 ( 7.4%)      I                                          
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+No   Variable                               Label                                      Stats / Values                     Freqs (% of Valid)    Graph                  Valid      Missing  
+---- -------------------------------------- ------------------------------------------ ---------------------------------- --------------------- ---------------------- ---------- ---------
+1    sats_seguridad\                        Grado de satisfaccion: Seguridad del       Mean (sd) : 3 (1.1)\               1 :  29 ( 7.8%)\      I \                    373\       0\       
+     [haven_labelled, vctrs_vctr, double]   barrio                                     min &lt; med &lt; max:\                  2 : 112 (30.0%)\      IIIIII \               (100.0%)   (0.0%)   
+                                                                                       1 &lt; 3 &lt; 5\                         3 :  74 (19.8%)\      III \                                      
+                                                                                       IQR (CV) : 2 (0.4)                 4 : 147 (39.4%)\      IIIIIII \                                  
+                                                                                                                          5 :  11 ( 2.9%)                                                  
 
-2    sats_averde\                           Grado de satisfaccion: Areas verdes y de   Mean (sd) : 3.5 (1)\               1 :   6 ( 2.6%)\     \                      230\       0\       
-     [haven_labelled, vctrs_vctr, double]   recreacion disponibles                     min &lt; med &lt; max:\                  2 :  50 (21.7%)\     IIII \                 (100.0%)   (0.0%)   
-                                                                                       1 &lt; 4 &lt; 5\                         3 :  20 ( 8.7%)\     I \                                        
-                                                                                       IQR (CV) : 1 (0.3)                 4 : 141 (61.3%)\     IIIIIIIIIIII \                             
-                                                                                                                          5 :  13 ( 5.7%)      I                                          
+2    sats_conectividad\                     Grado de satisfaccion: Conectividad        Mean (sd) : 3.6 (0.9)\             1 :   7 ( 1.9%)\      \                      373\       0\       
+     [haven_labelled, vctrs_vctr, double]                                              min &lt; med &lt; max:\                  2 :  56 (15.0%)\      III \                  (100.0%)   (0.0%)   
+                                                                                       1 &lt; 4 &lt; 5\                         3 :  37 ( 9.9%)\      I \                                        
+                                                                                       IQR (CV) : 1 (0.2)                 4 : 252 (67.6%)\      IIIIIIIIIIIII \                            
+                                                                                                                          5 :  21 ( 5.6%)       I                                          
 
-3    sats_limpieza\                         Grado de satisfaccion: Limpieza y          Mean (sd) : 3.2 (1)\               1 :  12 ( 5.2%)\     I \                    230\       0\       
-     [haven_labelled, vctrs_vctr, double]   belleza del barrio                         min &lt; med &lt; max:\                  2 :  66 (28.7%)\     IIIII \                (100.0%)   (0.0%)   
-                                                                                       1 &lt; 4 &lt; 5\                         3 :  35 (15.2%)\     III \                                      
-                                                                                       IQR (CV) : 2 (0.3)                 4 : 108 (47.0%)\     IIIIIIIII \                                
-                                                                                                                          5 :   9 ( 3.9%)                                                 
+3    sats_averde\                           Grado de satisfaccion: Areas verdes y de   Mean (sd) : 3.3 (1.1)\             1 :  21 ( 5.6%)\      I \                    373\       0\       
+     [haven_labelled, vctrs_vctr, double]   recreacion disponibles                     min &lt; med &lt; max:\                  2 :  89 (23.9%)\      IIII \                 (100.0%)   (0.0%)   
+                                                                                       1 &lt; 4 &lt; 5\                         3 :  33 ( 8.8%)\      I \                                        
+                                                                                       IQR (CV) : 2 (0.3)                 4 : 208 (55.8%)\      IIIIIIIIIII \                              
+                                                                                                                          5 :  22 ( 5.9%)       I                                          
 
-4    ingreso\                               Ingreso total del hogar (monto)            Mean (sd) : 675784.7 (721871.3)\   59 distinct values   \ \ :\                 230\       0\       
-     [haven_labelled, vctrs_vctr, double]                                              min &lt; med &lt; max:\                                       \ \ : .\               (100.0%)   (0.0%)   
-                                                                                       -999 &lt; 500000 &lt; 3500000\                                . : :\                                     
-                                                                                       IQR (CV) : 687500 (1.1)                                 : : :\                                     
-                                                                                                                                               : : : : . \ \ .                            
+4    sats_limpieza\                         Grado de satisfaccion: Limpieza y          Mean (sd) : 3.2 (1.1)\             1 :  22 ( 5.9%)\      I \                    373\       0\       
+     [haven_labelled, vctrs_vctr, double]   belleza del barrio                         min &lt; med &lt; max:\                  2 : 101 (27.1%)\      IIIII \                (100.0%)   (0.0%)   
+                                                                                       1 &lt; 4 &lt; 5\                         3 :  55 (14.7%)\      II \                                       
+                                                                                       IQR (CV) : 2 (0.3)                 4 : 176 (47.2%)\      IIIIIIIII \                                
+                                                                                                                          5 :  19 ( 5.1%)       I                                          
 
-5    comuna\                                Comuna                                     1\. Colina\                        57 (24.8%)\          IIII \                 230\       0\       
-     [character]                                                                       2\. La Pintana\                    33 (14.3%)\          II \                   (100.0%)   (0.0%)   
-                                                                                       3\. Las Condes\                    15 ( 6.5%)\          I \                                        
-                                                                                       4\. Macul\                         19 ( 8.3%)\          I \                                        
-                                                                                       5\. Providencia\                   28 (12.2%)\          II \                                       
-                                                                                       6\. Renca\                         17 ( 7.4%)\          I \                                        
-                                                                                       7\. Santiago\                      60 (26.1%)\          IIIII \                                    
-                                                                                       8\. Vitacura                       1 ( 0.4%)                                                       
+5    sats_colegios\                         Grado de satisfaccion: Proximidad a        Mean (sd) : -18.1 (139)\           -999 :   1 ( 0.3%)\   \                      373\       0\       
+     [haven_labelled, vctrs_vctr, double]   colegios de buena calidad                  min &lt; med &lt; max:\                  -888 :   8 ( 2.1%)\   \                      (100.0%)   (0.0%)   
+                                                                                       -999 &lt; 4 &lt; 5\                      1 :   5 ( 1.3%)\      \                                          
+                                                                                       IQR (CV) : 1 (-7.7)                2 :  46 (12.3%)\      II \                                       
+                                                                                                                          3 :  38 (10.2%)\      II \                                       
+                                                                                                                          4 : 250 (67.0%)\      IIIIIIIIIIIII \                            
+                                                                                                                          5 :  25 ( 6.7%)       I                                          
 
-6    region\                                Region                                     1\. Metropolitana                  230 (100.0%)         IIIIIIIIIIIIIIIIIIII   230\       0\       
-     [character]                                                                                                                                                      (100.0%)   (0.0%)   
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</code></pre>
+6    percp_barrio\                          Percepcion de evaluacion del barrio        Mean (sd) : -1.5 (65.2)\           -888 :   2 ( 0.5%)\   \                      373\       0\       
+     [haven_labelled, vctrs_vctr, double]                                              min &lt; med &lt; max:\                  1 :  24 ( 6.4%)\      I \                    (100.0%)   (0.0%)   
+                                                                                       -888 &lt; 4 &lt; 5\                      2 :  65 (17.4%)\      III \                                      
+                                                                                       IQR (CV) : 1 (-44)                 3 :  75 (20.1%)\      IIII \                                     
+                                                                                                                          4 : 191 (51.2%)\      IIIIIIIIII \                               
+                                                                                                                          5 :  16 ( 4.3%)                                                  
+
+7    percp_seguridad\                       Percepcion de seguridad del barrio         Mean (sd) : 3.1 (1)\               1 :  28 ( 7.5%)\      I \                    373\       0\       
+     [haven_labelled, vctrs_vctr, double]                                              min &lt; med &lt; max:\                  2 :  78 (20.9%)\      IIII \                 (100.0%)   (0.0%)   
+                                                                                       1 &lt; 3 &lt; 5\                         3 :  95 (25.5%)\      IIIII \                                    
+                                                                                       IQR (CV) : 2 (0.3)                 4 : 158 (42.4%)\      IIIIIIII \                                 
+                                                                                                                          5 :  14 ( 3.8%)                                                  
+
+8    frq_vecinosbasura\                     Frecuencia: Problemas por vecinos botan    Mean (sd) : 2 (1.3)\               1 : 197 (52.8%)\      IIIIIIIIII \           373\       0\       
+     [haven_labelled, vctrs_vctr, double]   basura o similar                           min &lt; med &lt; max:\                  2 :  55 (14.7%)\      II \                   (100.0%)   (0.0%)   
+                                                                                       1 &lt; 1 &lt; 5\                         3 :  55 (14.7%)\      II \                                       
+                                                                                       IQR (CV) : 2 (0.6)                 4 :  38 (10.2%)\      II \                                       
+                                                                                                                          5 :  28 ( 7.5%)       I                                          
+
+9    ingreso\                               Ingreso total del hogar (monto)            Mean (sd) : 616046.7 (800723.6)\   68 distinct values    \ \ :\                 373\       0\       
+     [haven_labelled, vctrs_vctr, double]                                              min &lt; med &lt; max:\                                        \ \ :\                 (100.0%)   (0.0%)   
+                                                                                       -999 &lt; 450000 &lt; 8000000\                                 \ \ :\                                     
+                                                                                       IQR (CV) : 650000 (1.3)                                  . :\                                       
+                                                                                                                                                : : .                                      
+
+10   comuna\                                Comuna                                     1\. Colina\                        57 (15.3%)\           III \                  373\       0\       
+     [character]                                                                       2\. La Florida\                    42 (11.3%)\           II \                   (100.0%)   (0.0%)   
+                                                                                       3\. Las Condes\                    15 ( 4.0%)\           \                                          
+                                                                                       4\. Maipu\                         59 (15.8%)\           III \                                      
+                                                                                       5\. Providencia\                   28 ( 7.5%)\           I \                                        
+                                                                                       6\. Puente Alto\                   72 (19.3%)\           III \                                      
+                                                                                       7\. San Bernardo\                  40 (10.7%)\           II \                                       
+                                                                                       8\. Santiago                       60 (16.1%)            III                                        
+
+11   region\                                Region                                     1\. Metropolitana                  373 (100.0%)          IIIIIIIIIIIIIIIIIIII   373\       0\       
+     [character]                                                                                                                                                       (100.0%)   (0.0%)   
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">view</span>(<span class="fu">dfSummary</span>(proc_data, <span class="at">headings=</span><span class="cn">FALSE</span>)) <span class="co">#Tabla como imagen</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">view</span>(<span class="fu">dfSummary</span>(proc_data, <span class="at">headings=</span><span class="cn">FALSE</span>)) <span class="co">#Tabla como imagen</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Switching method to 'browser'</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Output file written: C:\Users\arell\AppData\Local\Temp\Rtmpe6DXrm\file1f8c3b10583f.html</code></pre>
+<pre><code>Output file written: C:\Users\arell\AppData\Local\Temp\RtmpUTb8tN\file67483834408d.html</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(proc_data))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(proc_data))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>proc_data <span class="ot">&lt;-</span> proc_data <span class="sc">%&gt;%</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter_all</span>(<span class="fu">all_vars</span>(<span class="sc">!</span><span class="fu">is.na</span>(.) <span class="sc">&amp;</span> . <span class="sc">!=</span> <span class="sc">-</span><span class="dv">999</span> <span class="sc">&amp;</span> . <span class="sc">!=</span> <span class="sc">-</span><span class="dv">888</span>)) <span class="co">#Filtrar NA'S</span></span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>proc_data <span class="sc">%&gt;%</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> sats_conec)) <span class="sc">+</span> </span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>proc_data <span class="ot">&lt;-</span> proc_data <span class="sc">%&gt;%</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter_all</span>(<span class="fu">all_vars</span>(<span class="sc">!</span><span class="fu">is.na</span>(.) <span class="sc">&amp;</span> . <span class="sc">!=</span> <span class="sc">-</span><span class="dv">999</span> <span class="sc">&amp;</span> . <span class="sc">!=</span> <span class="sc">-</span><span class="dv">888</span>)) <span class="co">#Filtrar NA'S</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>summarytools<span class="sc">::</span><span class="fu">dfSummary</span>(proc_data, <span class="at">plain.ascii =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>### Data Frame Summary  
+#### proc_data  
+**Label:** Estudio Longitudinal Social de Chile. Ola 2016. Version 4.00 (10/06/2020)  
+**Dimensions:** 286 x 11  
+**Duplicates:** 8  
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+No   Variable                               Label                                      Stats / Values                     Freqs (% of Valid)   Graph                  Valid      Missing  
+---- -------------------------------------- ------------------------------------------ ---------------------------------- -------------------- ---------------------- ---------- ---------
+1    sats_seguridad\                        Grado de satisfaccion: Seguridad del       Mean (sd) : 3 (1.1)\               1 :  22 ( 7.7%)\     I \                    286\       0\       
+     [haven_labelled, vctrs_vctr, double]   barrio                                     min &lt; med &lt; max:\                  2 :  91 (31.8%)\     IIIIII \               (100.0%)   (0.0%)   
+                                                                                       1 &lt; 3 &lt; 5\                         3 :  58 (20.3%)\     IIII \                                     
+                                                                                       IQR (CV) : 2 (0.4)                 4 : 108 (37.8%)\     IIIIIII \                                  
+                                                                                                                          5 :   7 ( 2.4%)                                                 
+
+2    sats_conectividad\                     Grado de satisfaccion: Conectividad        Mean (sd) : 3.6 (0.8)\             1 :   3 ( 1.0%)\     \                      286\       0\       
+     [haven_labelled, vctrs_vctr, double]                                              min &lt; med &lt; max:\                  2 :  44 (15.4%)\     III \                  (100.0%)   (0.0%)   
+                                                                                       1 &lt; 4 &lt; 5\                         3 :  28 ( 9.8%)\     I \                                        
+                                                                                       IQR (CV) : 1 (0.2)                 4 : 198 (69.2%)\     IIIIIIIIIIIII \                            
+                                                                                                                          5 :  13 ( 4.5%)                                                 
+
+3    sats_averde\                           Grado de satisfaccion: Areas verdes y de   Mean (sd) : 3.3 (1.1)\             1 :  16 ( 5.6%)\     I \                    286\       0\       
+     [haven_labelled, vctrs_vctr, double]   recreacion disponibles                     min &lt; med &lt; max:\                  2 :  70 (24.5%)\     IIII \                 (100.0%)   (0.0%)   
+                                                                                       1 &lt; 4 &lt; 5\                         3 :  22 ( 7.7%)\     I \                                        
+                                                                                       IQR (CV) : 2 (0.3)                 4 : 160 (55.9%)\     IIIIIIIIIII \                              
+                                                                                                                          5 :  18 ( 6.3%)      I                                          
+
+4    sats_limpieza\                         Grado de satisfaccion: Limpieza y          Mean (sd) : 3.2 (1.1)\             1 :  15 ( 5.2%)\     I \                    286\       0\       
+     [haven_labelled, vctrs_vctr, double]   belleza del barrio                         min &lt; med &lt; max:\                  2 :  83 (29.0%)\     IIIII \                (100.0%)   (0.0%)   
+                                                                                       1 &lt; 4 &lt; 5\                         3 :  34 (11.9%)\     II \                                       
+                                                                                       IQR (CV) : 2 (0.3)                 4 : 139 (48.6%)\     IIIIIIIII \                                
+                                                                                                                          5 :  15 ( 5.2%)      I                                          
+
+5    sats_colegios\                         Grado de satisfaccion: Proximidad a        Mean (sd) : 3.7 (0.8)\             1 :   4 ( 1.4%)\     \                      286\       0\       
+     [haven_labelled, vctrs_vctr, double]   colegios de buena calidad                  min &lt; med &lt; max:\                  2 :  39 (13.6%)\     II \                   (100.0%)   (0.0%)   
+                                                                                       1 &lt; 4 &lt; 5\                         3 :  24 ( 8.4%)\     I \                                        
+                                                                                       IQR (CV) : 0 (0.2)                 4 : 199 (69.6%)\     IIIIIIIIIIIII \                            
+                                                                                                                          5 :  20 ( 7.0%)      I                                          
+
+6    percp_barrio\                          Percepcion de evaluacion del barrio        Mean (sd) : 3.2 (1)\               1 :  21 ( 7.3%)\     I \                    286\       0\       
+     [haven_labelled, vctrs_vctr, double]                                              min &lt; med &lt; max:\                  2 :  51 (17.8%)\     III \                  (100.0%)   (0.0%)   
+                                                                                       1 &lt; 4 &lt; 5\                         3 :  63 (22.0%)\     IIII \                                     
+                                                                                       IQR (CV) : 1.8 (0.3)               4 : 138 (48.3%)\     IIIIIIIII \                                
+                                                                                                                          5 :  13 ( 4.5%)                                                 
+
+7    percp_seguridad\                       Percepcion de seguridad del barrio         Mean (sd) : 3.1 (1)\               1 :  22 ( 7.7%)\     I \                    286\       0\       
+     [haven_labelled, vctrs_vctr, double]                                              min &lt; med &lt; max:\                  2 :  64 (22.4%)\     IIII \                 (100.0%)   (0.0%)   
+                                                                                       1 &lt; 3 &lt; 5\                         3 :  77 (26.9%)\     IIIII \                                    
+                                                                                       IQR (CV) : 2 (0.3)                 4 : 111 (38.8%)\     IIIIIII \                                  
+                                                                                                                          5 :  12 ( 4.2%)                                                 
+
+8    frq_vecinosbasura\                     Frecuencia: Problemas por vecinos botan    Mean (sd) : 2 (1.3)\               1 : 149 (52.1%)\     IIIIIIIIII \           286\       0\       
+     [haven_labelled, vctrs_vctr, double]   basura o similar                           min &lt; med &lt; max:\                  2 :  42 (14.7%)\     II \                   (100.0%)   (0.0%)   
+                                                                                       1 &lt; 1 &lt; 5\                         3 :  48 (16.8%)\     III \                                      
+                                                                                       IQR (CV) : 2 (0.6)                 4 :  27 ( 9.4%)\     I \                                        
+                                                                                                                          5 :  20 ( 7.0%)      I                                          
+
+9    ingreso\                               Ingreso total del hogar (monto)            Mean (sd) : 764783.2 (777221.6)\   63 distinct values   :\                     286\       0\       
+     [haven_labelled, vctrs_vctr, double]                                              min &lt; med &lt; max:\                                       :\                     (100.0%)   (0.0%)   
+                                                                                       0 &lt; 500000 &lt; 8000000\                                   :\                                         
+                                                                                       IQR (CV) : 400000 (1)                                   :\                                         
+                                                                                                                                               : .                                        
+
+10   comuna\                                Comuna                                     1\. Colina\                        44 (15.4%)\          III \                  286\       0\       
+     [character]                                                                       2\. La Florida\                    28 ( 9.8%)\          I \                    (100.0%)   (0.0%)   
+                                                                                       3\. Las Condes\                    12 ( 4.2%)\          \                                          
+                                                                                       4\. Maipu\                         47 (16.4%)\          III \                                      
+                                                                                       5\. Providencia\                   25 ( 8.7%)\          I \                                        
+                                                                                       6\. Puente Alto\                   58 (20.3%)\          IIII \                                     
+                                                                                       7\. San Bernardo\                  30 (10.5%)\          II \                                       
+                                                                                       8\. Santiago                       42 (14.7%)           II                                         
+
+11   region\                                Region                                     1\. Metropolitana                  286 (100.0%)         IIIIIIIIIIIIIIIIIIII   286\       0\       
+     [character]                                                                                                                                                      (100.0%)   (0.0%)   
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">view</span>(<span class="fu">dfSummary</span>(proc_data, <span class="at">headings=</span><span class="cn">FALSE</span>))  <span class="co">#SIN NA´S</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Switching method to 'browser'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Output file written: C:\Users\arell\AppData\Local\Temp\RtmpUTb8tN\file67481463926.html</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggpairs</span>(proc_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Don't know how to automatically pick scale for object of type
 &lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.
+`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 </div>
 <div class="cell-output-display">
 <div>
@@ -455,68 +908,17 @@ No   Variable                               Label                               
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>proc_data <span class="sc">%&gt;%</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> sats_averde)) <span class="sc">+</span> </span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Don't know how to automatically pick scale for object of type
-&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.</code></pre>
 </div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="entrega22_files/figure-html/unnamed-chunk-1-2.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>proc_data <span class="sc">%&gt;%</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> sats_limpieza)) <span class="sc">+</span> </span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Don't know how to automatically pick scale for object of type
-&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.</code></pre>
-</div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="entrega22_files/figure-html/unnamed-chunk-1-3.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>proc_data <span class="sc">%&gt;%</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> sats_conec)) <span class="sc">+</span> </span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">fill =</span> <span class="st">"coral"</span>)<span class="sc">+</span></span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Satisfacción Conectividad"</span>,</span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Satisfacción Conectividad"</span>,</span>
-<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Frecuencia"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Don't know how to automatically pick scale for object of type
-&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.</code></pre>
-</div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="entrega22_files/figure-html/unnamed-chunk-1-4.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>proc_data <span class="sc">%&gt;%</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> sats_averde)) <span class="sc">+</span> </span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">fill =</span> <span class="st">"coral"</span>)<span class="sc">+</span></span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Satisfacción área verde"</span>,</span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Satisfacción área verde"</span>,</span>
-<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Frecuencia"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Don't know how to automatically pick scale for object of type
-&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.</code></pre>
-</div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="entrega22_files/figure-html/unnamed-chunk-1-5.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>proc_data <span class="sc">%&gt;%</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> sats_limpieza)) <span class="sc">+</span> </span>
+<section id="gráficos" class="level3">
+<h3 class="anchored" data-anchor-id="gráficos">Gráficos</h3>
+<ol type="1">
+<li><strong>Satisfacción de la seguridad en el barrio;</strong> se puede decir que dentro de las comunas seleccionadas existe una satisfacción con la seguridad del barrio, observando que la media está en el 4 (</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>proc_data <span class="sc">%&gt;%</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> sats_seguridad)) <span class="sc">+</span> </span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">fill =</span> <span class="st">"coral"</span>)<span class="sc">+</span></span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Satisfacción Limpieza"</span>,</span>
-<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Satisfacción Limpieza"</span>,</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Satisfacción Seguridad en el Barrio"</span>,</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Satisfacción Seguridad"</span>,</span>
 <span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Frecuencia"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Don't know how to automatically pick scale for object of type
@@ -525,15 +927,61 @@ No   Variable                               Label                               
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="entrega22_files/figure-html/unnamed-chunk-1-6.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="entrega22_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
+<ol start="2" type="1">
+<li><strong>Satisfacción en la conectividad;</strong> observamos a diferencia del primer punto, la satisfacción con la conectividad tiene una tendencia más clara, observamos que la mayoría de las personas eligen la opción 4. Podríamos pensar que si elegimos otras comunas para nuestro análisis este panorama podría cambiar, por ejemplo si eligieramos comunas mucho más perifericas.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>proc_data <span class="sc">%&gt;%</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> sats_conectividad)) <span class="sc">+</span> </span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">fill =</span> <span class="st">"coral"</span>)<span class="sc">+</span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Satisfacción Conectividad"</span>,</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Satisfacción Conectividad"</span>,</span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Frecuencia"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="entrega22_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<ol start="3" type="1">
+<li><strong>Satisfacción con las áreas verdes;</strong> observamos que al igual que los items anteriores, existe una alta satisfacción en lo que son las áreas verdes cuando se analiza en conjunto las comunas.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>proc_data <span class="sc">%&gt;%</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> sats_averde)) <span class="sc">+</span> </span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">fill =</span> <span class="st">"coral"</span>)<span class="sc">+</span></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Satisfacción área verde"</span>,</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Satisfacción área verde"</span>,</span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Frecuencia"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Don't know how to automatically pick scale for object of type
+&lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="entrega22_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="entrega-3" class="level1 unnumbered">
+
 
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">Entrega 3</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-aquino2014" class="csl-entry" role="listitem">
 Aquino, Felipe, and Xabier Gainza. 2014. <span>“Understanding Density in an Uneven City, Santiago de Chile: Implications for Social and Environmental Sustainability.”</span> <em>Sustainability</em> 6 (9): 5876–97. <a href="https://doi.org/10.3390/su6095876">https://doi.org/10.3390/su6095876</a>.
 </div>

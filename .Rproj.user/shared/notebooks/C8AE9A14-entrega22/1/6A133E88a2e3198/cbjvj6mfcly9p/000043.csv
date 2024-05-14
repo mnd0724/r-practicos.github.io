@@ -1,0 +1,11 @@
+"0","psych::alpha(dplyr::select(proc_data, ingreso, comuna, region))
+"
+"2","Warning: NAs introducidos por coerción"
+"2","Warning: NAs introducidos por coerción"
+"2","Warning: Item = comuna had no variance and was deleted but still is counted in the score"
+"2","Warning: Item = region had no variance and was deleted but still is counted in the score"
+"2","Number of categories should be increased  in order to count frequencies. 
+"
+"2","Error in FUN(X[[i]], ...) : 
+  only defined on a data frame with all numeric-alike variables
+"
