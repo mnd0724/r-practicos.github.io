@@ -95,8 +95,6 @@ proc_data <- proc_data %>%
 
 summarytools::dfSummary(proc_data, plain.ascii = FALSE)
 view(dfSummary(proc_data, headings=FALSE))  #SIN NA´S
-
-ggpairs(proc_data)
 ```
 
 ### Gráficos
