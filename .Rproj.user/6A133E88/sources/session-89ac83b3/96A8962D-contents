@@ -61,8 +61,6 @@ proc_data <- filter(proc_data, comuna %in% c("Providencia",
 #de personas encuestadas, y que sean lo más cercano posible en 
 #en número de personas que participaron.
 
-view(proc_data)
-
 sjmisc::descr(proc_data,
               show = c("label","range", "mean", "sd", "NA.prc", "n"))%>%
   kable(.,"markdown")
@@ -123,16 +121,21 @@ ggpairs(proc_data)
 
 #2. ENTREGA 3 -----
 
+
+
+
+proc_data %>% dplyr::select(sats_seguridad, sats_conectividad, sats_averde, sats_limpieza) %>% 
+  sjPlot::plot_stackfrq()+
+  theme(legend.position = "bottom")
+
+
+
+
 view(dfSummary(proc_data, headings=FALSE, graph.col = FALSE))
 cor(proc_data$sats_averde, proc_data$ingreso)
 cor(proc_data$sats_conectividad, proc_data$ingreso)
 cor(proc_data$sats_limpieza, proc_data$ingreso)
 na.omit(proc_data)
-
-#Sabemos que los valores de alfa van desde 0 y 1, cuando los valores
-#son más cercanos a 1, existe una mayor confiabilidad 
-#cuando el valor es mayor a 0.7 se considera como un valor aceptable
-#Observamos que la variable
 
 # Crear un vector con los nombres de las comunas
 nombres_comunas <- c("Providencia", "Colina", "Las Condes", "Puente Alto", "La Florida", "Santiago", "Maipu", "San Bernardo")
@@ -179,4 +182,29 @@ ggplot(proc_data, aes(x = comuna, y = ingreso, fill = comuna)) +
   theme(axis.text.x = element_text(angle = 45, hjust = 1)) +  # Rotar las etiquetas del eje x para mejor legibilidad
   scale_y_continuous(labels = scales::comma)  # Etiquetas personalizadas para los valores reales en el eje y
 
-             
+proc_data %>% dplyr::select(sats_seguridad, sats_conectividad, sats_averde, sats_limpieza) %>% 
+  sjPlot::plot_stackfrq()+
+  theme(legend.position = "bottom")
+
+proc_data %>% dplyr::select(percp_barrio, percp_seguridad) %>% 
+  sjPlot::plot_stackfrq()+
+  theme(legend.position = "bottom")
+
+proc_data %>% dplyr::select(frq_vecinosbasura) %>% 
+  sjPlot::plot_stackfrq()+
+  theme(legend.position = "bottom")
+
+psych::alpha(dplyr::select(proc_data, sats_seguridad, sats_conectividad, sats_averde, sats_limpieza, sats_colegios))
+#Sabemos que los valores de alfa van desde 0 y 1, cuando los valores
+#son más cercanos a 1, existe una mayor confiabilidad 
+#cuando el valor es mayor a 0.7 se considera como un valor aceptable
+#Observamos que la variable
+#Observamos que con estos 5 casos el raw.alpha es de 7.5
+#lo que quiere decir que hay una confiabilidad aceptable, si quitaramos alguno
+#de estos items la confianza disminuiría, así que se pueden construir
+#una escala con ellas.
+
+
+
+
+
