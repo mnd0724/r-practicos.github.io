@@ -550,7 +550,7 @@ No   Variable                               Label                               
 <pre><code>Switching method to 'browser'</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Output file written: C:\Users\arell\AppData\Local\Temp\Rtmp2Rbh4a\file1cac5a162c27.html</code></pre>
+<pre><code>Output file written: C:\Users\arell\AppData\Local\Temp\Rtmpkr5Llc\filef145a347f8.html</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(proc_data))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -642,7 +642,7 @@ No   Variable                               Label                               
 <pre><code>Switching method to 'browser'</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Output file written: C:\Users\arell\AppData\Local\Temp\Rtmp2Rbh4a\file1cac68921977.html</code></pre>
+<pre><code>Output file written: C:\Users\arell\AppData\Local\Temp\Rtmpkr5Llc\filef1477831fe5.html</code></pre>
 </div>
 </div>
 <section id="gráficos" class="level3">
@@ -800,7 +800,7 @@ No   Variable                               Label                               
 <pre><code>Switching method to 'browser'</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Output file written: C:\Users\arell\AppData\Local\Temp\Rtmp2Rbh4a\file1cac53d926b0.html</code></pre>
+<pre><code>Output file written: C:\Users\arell\AppData\Local\Temp\Rtmpkr5Llc\filef1456f38d6.html</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(proc_data<span class="sc">$</span>sats_averde, proc_data<span class="sc">$</span>ingreso)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -834,32 +834,27 @@ No   Variable                               Label                               
 #   ³​sats_averde, ⁴​sats_limpieza, ⁵​sats_colegios, ⁶​percp_barrio,
 #   ⁷​percp_seguridad, ⁸​frq_vecinosbasura</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Sabemos que los valores de alfa van desde 0 y 1, cuando los valores</span></span>
-<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a><span class="co">#son más cercanos a 1, existe una mayor confiabilidad </span></span>
-<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a><span class="co">#cuando el valor es mayor a 0.7 se considera como un valor aceptable</span></span>
-<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a><span class="co">#Observamos que la variable</span></span>
-<span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-6"><a href="#cb51-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear un vector con los nombres de las comunas</span></span>
-<span id="cb51-7"><a href="#cb51-7" aria-hidden="true" tabindex="-1"></a>nombres_comunas <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Providencia"</span>, <span class="st">"Colina"</span>, <span class="st">"Las Condes"</span>, <span class="st">"Puente Alto"</span>, <span class="st">"La Florida"</span>, <span class="st">"Santiago"</span>, <span class="st">"Maipu"</span>, <span class="st">"San Bernardo"</span>)</span>
-<span id="cb51-8"><a href="#cb51-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-9"><a href="#cb51-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Ordenar alfabéticamente los nombres de las comunas</span></span>
-<span id="cb51-10"><a href="#cb51-10" aria-hidden="true" tabindex="-1"></a>nombres_comunas <span class="ot">&lt;-</span> <span class="fu">sort</span>(nombres_comunas)</span>
-<span id="cb51-11"><a href="#cb51-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-12"><a href="#cb51-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear un vector con los valores numéricos en orden alfabético</span></span>
-<span id="cb51-13"><a href="#cb51-13" aria-hidden="true" tabindex="-1"></a>valores_numericos <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(nombres_comunas)</span>
-<span id="cb51-14"><a href="#cb51-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-15"><a href="#cb51-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear una nueva columna en el dataframe para asignar los valores numéricos</span></span>
-<span id="cb51-16"><a href="#cb51-16" aria-hidden="true" tabindex="-1"></a>proc_data<span class="sc">$</span>comunas_numericas <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear un vector con los nombres de las comunas</span></span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>nombres_comunas <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Providencia"</span>, <span class="st">"Colina"</span>, <span class="st">"Las Condes"</span>, <span class="st">"Puente Alto"</span>, <span class="st">"La Florida"</span>, <span class="st">"Santiago"</span>, <span class="st">"Maipu"</span>, <span class="st">"San Bernardo"</span>)</span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Ordenar alfabéticamente los nombres de las comunas</span></span>
+<span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a>nombres_comunas <span class="ot">&lt;-</span> <span class="fu">sort</span>(nombres_comunas)</span>
+<span id="cb51-6"><a href="#cb51-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-7"><a href="#cb51-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear un vector con los valores numéricos en orden alfabético</span></span>
+<span id="cb51-8"><a href="#cb51-8" aria-hidden="true" tabindex="-1"></a>valores_numericos <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(nombres_comunas)</span>
+<span id="cb51-9"><a href="#cb51-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-10"><a href="#cb51-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear una nueva columna en el dataframe para asignar los valores numéricos</span></span>
+<span id="cb51-11"><a href="#cb51-11" aria-hidden="true" tabindex="-1"></a>proc_data<span class="sc">$</span>comunas_numericas <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb51-12"><a href="#cb51-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-13"><a href="#cb51-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Asignar valores numéricos a las comunas</span></span>
+<span id="cb51-14"><a href="#cb51-14" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(nombres_comunas)) {</span>
+<span id="cb51-15"><a href="#cb51-15" aria-hidden="true" tabindex="-1"></a>  proc_data<span class="sc">$</span>comunas_numericas[proc_data<span class="sc">$</span>comuna <span class="sc">==</span> nombres_comunas[i]] <span class="ot">&lt;-</span> valores_numericos[i]</span>
+<span id="cb51-16"><a href="#cb51-16" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb51-17"><a href="#cb51-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-18"><a href="#cb51-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Asignar valores numéricos a las comunas</span></span>
-<span id="cb51-19"><a href="#cb51-19" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(nombres_comunas)) {</span>
-<span id="cb51-20"><a href="#cb51-20" aria-hidden="true" tabindex="-1"></a>  proc_data<span class="sc">$</span>comunas_numericas[proc_data<span class="sc">$</span>comuna <span class="sc">==</span> nombres_comunas[i]] <span class="ot">&lt;-</span> valores_numericos[i]</span>
-<span id="cb51-21"><a href="#cb51-21" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb51-22"><a href="#cb51-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-23"><a href="#cb51-23" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(proc_data, <span class="fu">aes</span>(<span class="at">x =</span> comuna, <span class="at">y =</span> sats_averde, <span class="at">fill =</span> comuna)) <span class="sc">+</span></span>
-<span id="cb51-24"><a href="#cb51-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>) <span class="sc">+</span>  <span class="co"># Utilizar stat = "identity" para usar los valores exactos de y</span></span>
-<span id="cb51-25"><a href="#cb51-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Comuna"</span>, <span class="at">y =</span> <span class="st">"Satisfacción con áreas verdes"</span>, <span class="at">title =</span> <span class="st">"Satisfacción con áreas verdes por comuna"</span>) <span class="sc">+</span></span>
-<span id="cb51-26"><a href="#cb51-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>))  <span class="co"># Rotar las etiquetas del eje x para mejor legibilidad</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb51-18"><a href="#cb51-18" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(proc_data, <span class="fu">aes</span>(<span class="at">x =</span> comuna, <span class="at">y =</span> sats_averde, <span class="at">fill =</span> comuna)) <span class="sc">+</span></span>
+<span id="cb51-19"><a href="#cb51-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>) <span class="sc">+</span>  <span class="co"># Utilizar stat = "identity" para usar los valores exactos de y</span></span>
+<span id="cb51-20"><a href="#cb51-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Comuna"</span>, <span class="at">y =</span> <span class="st">"Satisfacción con áreas verdes"</span>, <span class="at">title =</span> <span class="st">"Satisfacción con áreas verdes por comuna"</span>) <span class="sc">+</span></span>
+<span id="cb51-21"><a href="#cb51-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>))  <span class="co"># Rotar las etiquetas del eje x para mejor legibilidad</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Don't know how to automatically pick scale for object of type
 &lt;haven_labelled/vctrs_vctr/double&gt;. Defaulting to continuous.</code></pre>
@@ -922,6 +917,89 @@ Labels:
 </figure>
 </div>
 </div>
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>proc_data <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">select</span>(sats_seguridad, sats_conectividad, sats_averde, sats_limpieza) <span class="sc">%&gt;%</span> </span>
+<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a>  sjPlot<span class="sc">::</span><span class="fu">plot_stackfrq</span>()<span class="sc">+</span></span>
+<span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="entrega22_files/figure-html/unnamed-chunk-9-4.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>proc_data <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">select</span>(percp_barrio, percp_seguridad) <span class="sc">%&gt;%</span> </span>
+<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a>  sjPlot<span class="sc">::</span><span class="fu">plot_stackfrq</span>()<span class="sc">+</span></span>
+<span id="cb60-3"><a href="#cb60-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="entrega22_files/figure-html/unnamed-chunk-9-5.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a>proc_data <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">select</span>(frq_vecinosbasura) <span class="sc">%&gt;%</span> </span>
+<span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a>  sjPlot<span class="sc">::</span><span class="fu">plot_stackfrq</span>()<span class="sc">+</span></span>
+<span id="cb61-3"><a href="#cb61-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="entrega22_files/figure-html/unnamed-chunk-9-6.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>psych<span class="sc">::</span><span class="fu">alpha</span>(dplyr<span class="sc">::</span><span class="fu">select</span>(proc_data, sats_seguridad, sats_conectividad, sats_averde, sats_limpieza, sats_colegios))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Reliability analysis   
+Call: psych::alpha(x = dplyr::select(proc_data, sats_seguridad, sats_conectividad, 
+    sats_averde, sats_limpieza, sats_colegios))
+
+  raw_alpha std.alpha G6(smc) average_r S/N   ase mean  sd median_r
+      0.75      0.75    0.72      0.37   3 0.023  3.4 0.7     0.35
+
+    95% confidence boundaries 
+         lower alpha upper
+Feldt      0.7  0.75  0.79
+Duhachek   0.7  0.75  0.79
+
+ Reliability if an item is dropped:
+                  raw_alpha std.alpha G6(smc) average_r S/N alpha se  var.r
+sats_seguridad         0.72      0.71    0.67      0.39 2.5    0.026 0.0109
+sats_conectividad      0.73      0.73    0.69      0.41 2.7    0.025 0.0101
+sats_averde            0.67      0.67    0.61      0.34 2.0    0.031 0.0043
+sats_limpieza          0.67      0.68    0.62      0.34 2.1    0.031 0.0022
+sats_colegios          0.72      0.71    0.67      0.38 2.5    0.027 0.0128
+                  med.r
+sats_seguridad     0.35
+sats_conectividad  0.39
+sats_averde        0.32
+sats_limpieza      0.35
+sats_colegios      0.35
+
+ Item statistics 
+                    n raw.r std.r r.cor r.drop mean   sd
+sats_seguridad    286  0.70  0.68  0.55   0.48  3.0 1.05
+sats_conectividad 286  0.61  0.65  0.49   0.42  3.6 0.84
+sats_averde       286  0.78  0.76  0.70   0.60  3.3 1.08
+sats_limpieza     286  0.78  0.75  0.69   0.59  3.2 1.08
+sats_colegios     286  0.66  0.69  0.56   0.48  3.7 0.85
+
+Non missing response frequency for each item
+                     1    2    3    4    5 miss
+sats_seguridad    0.08 0.32 0.20 0.38 0.02    0
+sats_conectividad 0.01 0.15 0.10 0.69 0.05    0
+sats_averde       0.06 0.24 0.08 0.56 0.06    0
+sats_limpieza     0.05 0.29 0.12 0.49 0.05    0
+sats_colegios     0.01 0.14 0.08 0.70 0.07    0</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Sabemos que los valores de alfa van desde 0 y 1, cuando los valores</span></span>
+<span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a><span class="co">#son más cercanos a 1, existe una mayor confiabilidad </span></span>
+<span id="cb64-3"><a href="#cb64-3" aria-hidden="true" tabindex="-1"></a><span class="co">#cuando el valor es mayor a 0.7 se considera como un valor aceptable</span></span>
+<span id="cb64-4"><a href="#cb64-4" aria-hidden="true" tabindex="-1"></a><span class="co">#Observamos que la variable</span></span>
+<span id="cb64-5"><a href="#cb64-5" aria-hidden="true" tabindex="-1"></a><span class="co">#Observamos que con estos 5 casos el raw.alpha es de 7.5</span></span>
+<span id="cb64-6"><a href="#cb64-6" aria-hidden="true" tabindex="-1"></a><span class="co">#lo que quiere decir que hay una confiabilidad aceptable </span></span>
+<span id="cb64-7"><a href="#cb64-7" aria-hidden="true" tabindex="-1"></a><span class="co">#de estos items la confianza disminuiría, así que se pueden construir</span></span>
+<span id="cb64-8"><a href="#cb64-8" aria-hidden="true" tabindex="-1"></a><span class="co">#una escala con ellas.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 </section>
