@@ -132,10 +132,44 @@ proc_data %>% ggplot(aes(x = sats_averde)) +
 4.  
 
 ```{r}
-
+proc_data %>% ggplot(aes(x = sats_limpieza)) + 
+  geom_bar(fill = "coral")+
+  labs(title = "Satisfacción Limpieza y Belleza en el Barrio",
+       x = "Satisfacción Limpieza",
+       y = "Frecuencia")
 ```
 
-## Entrega 3 
+5.  
+
+```{r}
+proc_data %>% ggplot(aes(x = sats_colegios)) + 
+  geom_bar(fill = "coral")+
+  labs(title = "Satisfacción cercanía a colegios de buena calidad",
+       x = "Satisfacción cercanía a colegios de buena calidad",
+       y = "Frecuencia")
+```
+
+6\.
+
+```{r}
+proc_data %>% ggplot(aes(x = percp_barrio)) + 
+  geom_bar(fill = "coral")+
+  labs(title = "Percepción Evaluación del Barrio",
+       x = "Percepción Evaluación del Barrio",
+       y = "Frecuencia")
+```
+
+7\.
+
+```{r}
+proc_data %>% ggplot(aes(x = frq_vecinosbasura)) + 
+  geom_bar(fill = "coral")+
+  labs(title = "Satisfacción Limpi",
+       x = "Satisfacción Limpieza",
+       y = "Frecuencia")
+```
+
+## Entrega 3
 
 ```{r}
 view(dfSummary(proc_data, headings=FALSE, graph.col = FALSE))
