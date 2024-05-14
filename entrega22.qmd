@@ -129,4 +129,70 @@ proc_data %>% ggplot(aes(x = sats_averde)) +
        y = "Frecuencia")
 ```
 
-# Entrega 3 
+4.  
+
+```{r}
+
+```
+
+## Entrega 3 
+
+```{r}
+view(dfSummary(proc_data, headings=FALSE, graph.col = FALSE))
+cor(proc_data$sats_averde, proc_data$ingreso)
+cor(proc_data$sats_conectividad, proc_data$ingreso)
+cor(proc_data$sats_limpieza, proc_data$ingreso)
+na.omit(proc_data)
+
+#Sabemos que los valores de alfa van desde 0 y 1, cuando los valores
+#son más cercanos a 1, existe una mayor confiabilidad 
+#cuando el valor es mayor a 0.7 se considera como un valor aceptable
+#Observamos que la variable
+
+# Crear un vector con los nombres de las comunas
+nombres_comunas <- c("Providencia", "Colina", "Las Condes", "Puente Alto", "La Florida", "Santiago", "Maipu", "San Bernardo")
+
+# Ordenar alfabéticamente los nombres de las comunas
+nombres_comunas <- sort(nombres_comunas)
+
+# Crear un vector con los valores numéricos en orden alfabético
+valores_numericos <- 1:length(nombres_comunas)
+
+# Crear una nueva columna en el dataframe para asignar los valores numéricos
+proc_data$comunas_numericas <- NA
+
+# Asignar valores numéricos a las comunas
+for (i in 1:length(nombres_comunas)) {
+  proc_data$comunas_numericas[proc_data$comuna == nombres_comunas[i]] <- valores_numericos[i]
+}
+
+ggplot(proc_data, aes(x = comuna, y = sats_averde, fill = comuna)) +
+  geom_bar(stat = "identity") +  # Utilizar stat = "identity" para usar los valores exactos de y
+  labs(x = "Comuna", y = "Satisfacción con áreas verdes", title = "Satisfacción con áreas verdes por comuna") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))  # Rotar las etiquetas del eje x para mejor legibilidad
+
+#calcular el valor máximo en Ingreso
+max_valor <- max(proc_data$ingreso)
+#Imprimir el valor máximo
+print(max_valor)
+
+# Calcular el valor mínimo en la variable
+min_valor <- min(proc_data$ingreso)
+# Imprimir el valor mínimo
+print(min_valor)
+
+ggplot(proc_data, aes(x = comuna, y = ingreso)) +
+  geom_point() +  # Agregar puntos al gráfico
+  labs(x = "Comuna", y = "Ingresos", title = "Gráfico de Dispersión de Ingresos por Comuna") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +  # Rotar las etiquetas del eje x para mejor legibilidad
+  ylim(0, 8000000)
+
+# Crear el gráfico de barras con escala logarítmica en el eje y y etiquetas personalizadas
+ggplot(proc_data, aes(x = comuna, y = ingreso, fill = comuna)) +
+  geom_bar(stat = "identity") +  # Utilizar stat = "identity" para usar los valores exactos de y
+  labs(x = "Comuna", y = "Ingresos", title = "Ingresos por Comuna") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +  # Rotar las etiquetas del eje x para mejor legibilidad
+  scale_y_continuous(labels = scales::comma)  # Etiquetas personalizadas para los valores reales en el eje y
+
+             
+```

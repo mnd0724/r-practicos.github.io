@@ -151,10 +151,6 @@ for (i in 1:length(nombres_comunas)) {
   proc_data$comunas_numericas[proc_data$comuna == nombres_comunas[i]] <- valores_numericos[i]
 }
 
-ggplot(proc_data, aes(x = comuna, y = sats_averde)) +
-  geom_bar() + # Agregar puntos al gráfico
-  labs(x = "Comuna", y = "Satisfacción con áreas verdes", title = "Relación entre satisfacción con áreas verdes y comunas")
-
 ggplot(proc_data, aes(x = comuna, y = sats_averde, fill = comuna)) +
   geom_bar(stat = "identity") +  # Utilizar stat = "identity" para usar los valores exactos de y
   labs(x = "Comuna", y = "Satisfacción con áreas verdes", title = "Satisfacción con áreas verdes por comuna") +
@@ -182,7 +178,5 @@ ggplot(proc_data, aes(x = comuna, y = ingreso, fill = comuna)) +
   labs(x = "Comuna", y = "Ingresos", title = "Ingresos por Comuna") +
   theme(axis.text.x = element_text(angle = 45, hjust = 1)) +  # Rotar las etiquetas del eje x para mejor legibilidad
   scale_y_continuous(labels = scales::comma)  # Etiquetas personalizadas para los valores reales en el eje y
-
-psych::alpha(dplyr::select(proc_data, ingreso, comuna, region))
 
              
