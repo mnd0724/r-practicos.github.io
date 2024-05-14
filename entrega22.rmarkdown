@@ -260,8 +260,18 @@ psych::alpha(dplyr::select(proc_data, sats_seguridad, sats_conectividad, sats_av
 #Observamos que la variable
 #Observamos que con estos 5 casos el raw.alpha es de 7.5
 #lo que quiere decir que hay una confiabilidad aceptable 
-#de estos items la confianza disminuiría, así que se pueden construir
-#una escala con ellas.
+#si eliminamos algunos de estps de estos items la confianza disminuiría, así que se pueden construir
+#una escala con estas.
 
+proc_data <- proc_data %>%
+  rowwise() %>% 
+  mutate(calidad_vida = sum(sats_limpieza, sats_seguridad, sats_conectividad, sats_averde, sats_colegios))
+summary(proc_data$calidad_vida)
+
+ggplot(proc_data, aes(x = calidad_vida)) +
+  geom_histogram(binwidth=0.6, colour="black", fill="pink") +
+  theme_bw() +
+  xlab("Calidad de vida") +
+  ylab("Cantidad")
 ```
 
