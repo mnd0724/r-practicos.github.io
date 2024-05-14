@@ -255,4 +255,9 @@ ggplot(proc_data, aes(x = calidad_vida)) +
   theme_bw() +
   xlab("Calidad de vida") +
   ylab("Cantidad")
+
+#Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  # 5.00   15.00   18.00   16.76   20.00   25.00 
+#Podemos observar que la mayor concentración de casos está en la categoría 18 y que sumado a un promedio de 16.76 según los descriptivos anteriores, podríamos afirmar que la calidad de vida en Chile es alta.
+
 ```
