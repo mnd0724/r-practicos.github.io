@@ -136,16 +136,24 @@ div.csl-indent {
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>               kableExtra, <span class="co">#Tablas</span></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>               sjPlot, <span class="co">#Tablas y gráficos</span></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>               corrplot, <span class="co"># Correlaciones</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>               sessioninfo, </span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>               sessioninfo, <span class="co"># Información de la sesión de trabajo</span></span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>               ggplot2,</span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>               haven,</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>               GGally) <span class="co"># Para la mayoría de los gráficos</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list=</span><span class="fu">ls</span>())       <span class="co"># borrar todos los objetos en el espacio de trabajo</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">scipen=</span><span class="dv">999</span>) <span class="co"># valores sin notación científica#Cargar base de datos</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_dta</span>(<span class="st">"input/ELSOC_W01_v4.01_Stata14.dta"</span>)</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(data)</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(data) <span class="co">#2927 428</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>               GGally,</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>               ggpubr,</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>               textreg,</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>               car,</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>               fastDummies,</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>               sjlabelled,</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>               ggeffects,</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>               texreg) </span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list=</span><span class="fu">ls</span>())       <span class="co"># borrar todos los objetos en el espacio de trabajo</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">scipen=</span><span class="dv">999</span>) <span class="co"># valores sin notación científica#Cargar base de datos</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_dta</span>(<span class="st">"input/ELSOC_W01_v4.01_Stata14.dta"</span>)</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(data)</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(data) <span class="co">#2927 428</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2927  428</code></pre>
 </div>
@@ -269,8 +277,10 @@ div.csl-indent {
 <span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>                             t11_04,</span>
 <span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>                             m29,</span>
 <span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>                             comuna,</span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>                             region)</span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="fu">view</span>(proc_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>                             region,</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>                             m0_edad,</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>                             m0_sexo)</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="fu">view</span>(proc_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>x must either be a summarytools object created with freq(), descr(), or a list of summarytools objects created using by()</code></pre>
 </div>
@@ -279,26 +289,42 @@ div.csl-indent {
 <pre><code>
 ## Basic descriptive statistics
 
-    var    type                                                           label
- t06_01 numeric                     Grado de satisfaccion: Seguridad del barrio
- t06_02 numeric                             Grado de satisfaccion: Conectividad
- t06_03 numeric Grado de satisfaccion: Areas verdes y de recreacion disponibles
- t06_04 numeric            Grado de satisfaccion: Limpieza y belleza del barrio
- t06_06 numeric   Grado de satisfaccion: Proximidad a colegios de buena calidad
-    t08 numeric                             Percepcion de evaluacion del barrio
-    t10 numeric                              Percepcion de seguridad del barrio
- t11_04 numeric        Frecuencia: Problemas por vecinos botan basura o similar
-    m29 numeric                                 Ingreso total del hogar (monto)
-    n NA.prc       mean          sd         se     md    trimmed
- 2927      0       2.87       16.51       0.31      4       2.87
- 2927      0      -0.67       62.11       1.15      4      -0.67
- 2927      0       2.18       28.54       0.53      4       2.18
- 2927      0       2.25       29.77       0.55      4       2.25
- 2927      0      -7.17       98.03       1.81      4      -7.17
- 2927      0      -6.71       94.13       1.74      4      -6.71
- 2927      0       3.08       16.51       0.31      4       3.08
- 2927      0       0.91       28.50       0.53      1       0.91
- 2927      0 1980741.74 74096130.04 1369569.78 350000 1980741.74
+     var    type
+  t06_01 numeric
+  t06_02 numeric
+  t06_03 numeric
+  t06_04 numeric
+  t06_06 numeric
+     t08 numeric
+     t10 numeric
+  t11_04 numeric
+     m29 numeric
+ m0_edad numeric
+ m0_sexo numeric
+                                                           label    n NA.prc
+                     Grado de satisfaccion: Seguridad del barrio 2927      0
+                             Grado de satisfaccion: Conectividad 2927      0
+ Grado de satisfaccion: Areas verdes y de recreacion disponibles 2927      0
+            Grado de satisfaccion: Limpieza y belleza del barrio 2927      0
+   Grado de satisfaccion: Proximidad a colegios de buena calidad 2927      0
+                             Percepcion de evaluacion del barrio 2927      0
+                              Percepcion de seguridad del barrio 2927      0
+        Frecuencia: Problemas por vecinos botan basura o similar 2927      0
+                                 Ingreso total del hogar (monto) 2927      0
+                                           Edad del entrevistado 2927      0
+                                           Sexo del entrevistado 2927      0
+       mean          sd         se     md    trimmed
+       2.87       16.51       0.31      4       2.87
+      -0.67       62.11       1.15      4      -0.67
+       2.18       28.54       0.53      4       2.18
+       2.25       29.77       0.55      4       2.25
+      -7.17       98.03       1.81      4      -7.17
+      -6.71       94.13       1.74      4      -6.71
+       3.08       16.51       0.31      4       3.08
+       0.91       28.50       0.53      1       0.91
+ 1980741.74 74096130.04 1369569.78 350000 1980741.74
+      46.09       15.29       0.28     46      46.09
+       1.60        0.49       0.01      2       1.60
                         range    iqr   skew
                  893 (-888-5)      2 -53.74
                 1004 (-999-5)      1 -14.38
@@ -308,7 +334,9 @@ div.csl-indent {
                  893 (-888-5)      1  -9.26
                  893 (-888-5)      1 -53.77
                  893 (-888-5)      2 -31.12
- 4000000999 (-999-4000000000) 480000  53.74</code></pre>
+ 4000000999 (-999-4000000000) 480000  53.74
+                   70 (18-88)     25   0.07
+                      1 (1-2)      1  -0.42</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>proc_data <span class="ot">&lt;-</span> proc_data <span class="sc">%&gt;%</span> <span class="fu">rename</span>(<span class="st">"sats_seguridad"</span> <span class="ot">=</span>t06_01,</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>                                  <span class="st">"sats_conectividad"</span><span class="ot">=</span>t06_02, <span class="co"># Satisfacción conectividad</span></span>
@@ -318,16 +346,19 @@ div.csl-indent {
 <span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>                                  <span class="st">"percp_barrio"</span><span class="ot">=</span>t08,</span>
 <span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>                                  <span class="st">"percp_seguridad"</span><span class="ot">=</span>t10,</span>
 <span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>                                  <span class="st">"frq_vecinosbasura"</span><span class="ot">=</span>t11_04,</span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>                                  <span class="st">"ingreso"</span><span class="ot">=</span>m29) <span class="co"># Ingresos total del hogar</span></span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="co">#VER LOS NOMBRES DE LAS VARIABLES</span></span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(proc_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>                                  <span class="st">"ingreso"</span><span class="ot">=</span>m29,</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>                                  <span class="st">"edad"</span><span class="ot">=</span>m0_edad,</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>                                  <span class="st">"sexo"</span><span class="ot">=</span>m0_sexo)</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="co">#VER LOS NOMBRES DE LAS VARIABLES</span></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(proc_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] "sats_seguridad"    "sats_conectividad" "sats_averde"      
  [4] "sats_limpieza"     "sats_colegios"     "percp_barrio"     
  [7] "percp_seguridad"   "frq_vecinosbasura" "ingreso"          
-[10] "comuna"            "region"           </code></pre>
+[10] "comuna"            "region"            "edad"             
+[13] "sexo"             </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Filtrar por comunas de la región metropolitana</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>proc_data <span class="ot">&lt;-</span> proc_data <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(region <span class="sc">==</span> <span class="st">"Metropolitana"</span>) <span class="co"># Filtrar por región (</span></span>
@@ -372,7 +403,7 @@ div.csl-indent {
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">9</td>
+<td style="text-align: left;">10</td>
 <td style="text-align: left;">sats_seguridad</td>
 <td style="text-align: left;">Grado de satisfaccion: Seguridad del barrio</td>
 <td style="text-align: right;">373</td>
@@ -382,7 +413,7 @@ div.csl-indent {
 <td style="text-align: left;">4 (1-5)</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">7</td>
+<td style="text-align: left;">8</td>
 <td style="text-align: left;">sats_conectividad</td>
 <td style="text-align: left;">Grado de satisfaccion: Conectividad</td>
 <td style="text-align: right;">373</td>
@@ -392,7 +423,7 @@ div.csl-indent {
 <td style="text-align: left;">4 (1-5)</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">5</td>
+<td style="text-align: left;">6</td>
 <td style="text-align: left;">sats_averde</td>
 <td style="text-align: left;">Grado de satisfaccion: Areas verdes y de recreacion disponibles</td>
 <td style="text-align: right;">373</td>
@@ -402,7 +433,7 @@ div.csl-indent {
 <td style="text-align: left;">4 (1-5)</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">8</td>
+<td style="text-align: left;">9</td>
 <td style="text-align: left;">sats_limpieza</td>
 <td style="text-align: left;">Grado de satisfaccion: Limpieza y belleza del barrio</td>
 <td style="text-align: right;">373</td>
@@ -412,7 +443,7 @@ div.csl-indent {
 <td style="text-align: left;">4 (1-5)</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">6</td>
+<td style="text-align: left;">7</td>
 <td style="text-align: left;">sats_colegios</td>
 <td style="text-align: left;">Grado de satisfaccion: Proximidad a colegios de buena calidad</td>
 <td style="text-align: right;">373</td>
@@ -422,7 +453,7 @@ div.csl-indent {
 <td style="text-align: left;">1004 (-999-5)</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">3</td>
+<td style="text-align: left;">4</td>
 <td style="text-align: left;">percp_barrio</td>
 <td style="text-align: left;">Percepcion de evaluacion del barrio</td>
 <td style="text-align: right;">373</td>
@@ -432,7 +463,7 @@ div.csl-indent {
 <td style="text-align: left;">893 (-888-5)</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">4</td>
+<td style="text-align: left;">5</td>
 <td style="text-align: left;">percp_seguridad</td>
 <td style="text-align: left;">Percepcion de seguridad del barrio</td>
 <td style="text-align: right;">373</td>
@@ -442,7 +473,7 @@ div.csl-indent {
 <td style="text-align: left;">4 (1-5)</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">1</td>
+<td style="text-align: left;">2</td>
 <td style="text-align: left;">frq_vecinosbasura</td>
 <td style="text-align: left;">Frecuencia: Problemas por vecinos botan basura o similar</td>
 <td style="text-align: right;">373</td>
@@ -452,7 +483,7 @@ div.csl-indent {
 <td style="text-align: left;">4 (1-5)</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">2</td>
+<td style="text-align: left;">3</td>
 <td style="text-align: left;">ingreso</td>
 <td style="text-align: left;">Ingreso total del hogar (monto)</td>
 <td style="text-align: right;">373</td>
@@ -460,6 +491,26 @@ div.csl-indent {
 <td style="text-align: right;">616046.664879</td>
 <td style="text-align: right;">800723.5771724</td>
 <td style="text-align: left;">8000999 (-999-8000000)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">edad</td>
+<td style="text-align: left;">Edad del entrevistado</td>
+<td style="text-align: right;">373</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">43.034852</td>
+<td style="text-align: right;">14.9767335</td>
+<td style="text-align: left;">60 (18-78)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">11</td>
+<td style="text-align: left;">sexo</td>
+<td style="text-align: left;">Sexo del entrevistado</td>
+<td style="text-align: right;">373</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1.640751</td>
+<td style="text-align: right;">0.4804249</td>
+<td style="text-align: left;">1 (1-2)</td>
 </tr>
 </tbody>
 </table>
@@ -469,8 +520,8 @@ div.csl-indent {
 <pre><code>### Data Frame Summary  
 #### proc_data  
 **Label:** Estudio Longitudinal Social de Chile. Ola 2016. Version 4.00 (10/06/2020)  
-**Dimensions:** 373 x 11  
-**Duplicates:** 9  
+**Dimensions:** 373 x 13  
+**Duplicates:** 0  
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 No   Variable                               Label                                      Stats / Values                     Freqs (% of Valid)    Graph                  Valid      Missing  
@@ -543,6 +594,16 @@ No   Variable                               Label                               
 
 11   region\                                Region                                     1\. Metropolitana                  373 (100.0%)          IIIIIIIIIIIIIIIIIIII   373\       0\       
      [character]                                                                                                                                                       (100.0%)   (0.0%)   
+
+12   edad\                                  Edad del entrevistado                      Mean (sd) : 43 (15)\               58 distinct values    \ \ : .\               373\       0\       
+     [haven_labelled, vctrs_vctr, double]                                              min &lt; med &lt; max:\                                        \ \ : : \ \ \ \ .\     (100.0%)   (0.0%)   
+                                                                                       18 &lt; 42 &lt; 78\                                            : : : : : : :\                             
+                                                                                       IQR (CV) : 25 (0.3)                                      : : : : : : : : .\                         
+                                                                                                                                                : : : : : : : : : :                        
+
+13   sexo\                                  Sexo del entrevistado                      Min  : 1\                          1 : 134 (35.9%)\      IIIIIII \              373\       0\       
+     [haven_labelled, vctrs_vctr, double]                                              Mean : 1.6\                        2 : 239 (64.1%)       IIIIIIIIIIII           (100.0%)   (0.0%)   
+                                                                                       Max  : 2                                                                                            
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">view</span>(<span class="fu">dfSummary</span>(proc_data, <span class="at">headings=</span><span class="cn">FALSE</span>)) <span class="co">#Tabla como imagen</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -550,7 +611,7 @@ No   Variable                               Label                               
 <pre><code>Switching method to 'browser'</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Output file written: C:\Users\arell\AppData\Local\Temp\RtmpOWqrT6\file20905929489.html</code></pre>
+<pre><code>Output file written: C:\Users\arell\AppData\Local\Temp\RtmpSwM8BA\file7c28441241ef.html</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(proc_data))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -564,8 +625,8 @@ No   Variable                               Label                               
 <pre><code>### Data Frame Summary  
 #### proc_data  
 **Label:** Estudio Longitudinal Social de Chile. Ola 2016. Version 4.00 (10/06/2020)  
-**Dimensions:** 286 x 11  
-**Duplicates:** 8  
+**Dimensions:** 286 x 13  
+**Duplicates:** 0  
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 No   Variable                               Label                                      Stats / Values                     Freqs (% of Valid)   Graph                  Valid      Missing  
@@ -635,6 +696,16 @@ No   Variable                               Label                               
 
 11   region\                                Region                                     1\. Metropolitana                  286 (100.0%)         IIIIIIIIIIIIIIIIIIII   286\       0\       
      [character]                                                                                                                                                      (100.0%)   (0.0%)   
+
+12   edad\                                  Edad del entrevistado                      Mean (sd) : 43.5 (15)\             58 distinct values   \ \ : .\               286\       0\       
+     [haven_labelled, vctrs_vctr, double]                                              min &lt; med &lt; max:\                                       \ \ : : \ \ . .\       (100.0%)   (0.0%)   
+                                                                                       18 &lt; 42 &lt; 78\                                           . : : . : : :\                             
+                                                                                       IQR (CV) : 25 (0.3)                                     : : : : : : : : .\                         
+                                                                                                                                               : : : : : : : : : :                        
+
+13   sexo\                                  Sexo del entrevistado                      Min  : 1\                          1 : 104 (36.4%)\     IIIIIII \              286\       0\       
+     [haven_labelled, vctrs_vctr, double]                                              Mean : 1.6\                        2 : 182 (63.6%)      IIIIIIIIIIII           (100.0%)   (0.0%)   
+                                                                                       Max  : 2                                                                                           
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">view</span>(<span class="fu">dfSummary</span>(proc_data, <span class="at">headings=</span><span class="cn">FALSE</span>))  <span class="co">#SIN NA´S</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -642,7 +713,7 @@ No   Variable                               Label                               
 <pre><code>Switching method to 'browser'</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Output file written: C:\Users\arell\AppData\Local\Temp\RtmpOWqrT6\file209052ce50d1.html</code></pre>
+<pre><code>Output file written: C:\Users\arell\AppData\Local\Temp\RtmpSwM8BA\file7c2827dc1169.html</code></pre>
 </div>
 </div>
 <section id="gráficos" class="level3">
@@ -800,7 +871,7 @@ No   Variable                               Label                               
 <pre><code>Switching method to 'browser'</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Output file written: C:\Users\arell\AppData\Local\Temp\RtmpOWqrT6\file20906fe04f5b.html</code></pre>
+<pre><code>Output file written: C:\Users\arell\AppData\Local\Temp\RtmpSwM8BA\file7c2868ac3f4f.html</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(proc_data<span class="sc">$</span>sats_averde, proc_data<span class="sc">$</span>ingreso)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -816,7 +887,7 @@ No   Variable                               Label                               
 </div>
 <div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">na.omit</span>(proc_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 286 × 11
+<pre><code># A tibble: 286 × 13
    sats_seguri…¹ sats_…² sats_…³ sats_…⁴ sats_…⁵ percp…⁶ percp…⁷ frq_v…⁸ ingreso
    &lt;dbl+lbl&gt;     &lt;dbl+l&gt; &lt;dbl+l&gt; &lt;dbl+l&gt; &lt;dbl+l&gt; &lt;dbl+l&gt; &lt;dbl+l&gt; &lt;dbl+l&gt; &lt;dbl+l&gt;
  1 2 [Insatisfe… 4 [Sat… 2 [Ins… 2 [Ins… 3 [Ni … 1 [Muy… 2 [Ins… 5 [Sie…  970000
@@ -829,10 +900,10 @@ No   Variable                               Label                               
  8 2 [Insatisfe… 4 [Sat… 4 [Sat… 2 [Ins… 4 [Sat… 3 [Ni … 3 [Ni … 2 [Poc…  750000
  9 5 [Totalment… 4 [Sat… 4 [Sat… 4 [Sat… 5 [Tot… 4 [Pos… 5 [Muy… 1 [Nun…  400000
 10 3 [Ni satisf… 3 [Ni … 4 [Sat… 2 [Ins… 4 [Sat… 3 [Ni … 3 [Ni … 2 [Poc… 1000000
-# … with 276 more rows, 2 more variables: comuna &lt;chr&gt;, region &lt;chr&gt;, and
-#   abbreviated variable names ¹​sats_seguridad, ²​sats_conectividad,
-#   ³​sats_averde, ⁴​sats_limpieza, ⁵​sats_colegios, ⁶​percp_barrio,
-#   ⁷​percp_seguridad, ⁸​frq_vecinosbasura</code></pre>
+# … with 276 more rows, 4 more variables: comuna &lt;chr&gt;, region &lt;chr&gt;,
+#   edad &lt;dbl+lbl&gt;, sexo &lt;dbl+lbl&gt;, and abbreviated variable names
+#   ¹​sats_seguridad, ²​sats_conectividad, ³​sats_averde, ⁴​sats_limpieza,
+#   ⁵​sats_colegios, ⁶​percp_barrio, ⁷​percp_seguridad, ⁸​frq_vecinosbasura</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear un vector con los nombres de las comunas</span></span>
 <span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>nombres_comunas <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Providencia"</span>, <span class="st">"Colina"</span>, <span class="st">"Las Condes"</span>, <span class="st">"Puente Alto"</span>, <span class="st">"La Florida"</span>, <span class="st">"Santiago"</span>, <span class="st">"Maipu"</span>, <span class="st">"San Bernardo"</span>)</span>
@@ -996,7 +1067,7 @@ sats_colegios     0.01 0.14 0.08 0.70 0.07    0</code></pre>
 <span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a><span class="co">#son más cercanos a 1, existe una mayor confiabilidad </span></span>
 <span id="cb64-3"><a href="#cb64-3" aria-hidden="true" tabindex="-1"></a><span class="co">#cuando el valor es mayor a 0.7 se considera como un valor aceptable</span></span>
 <span id="cb64-4"><a href="#cb64-4" aria-hidden="true" tabindex="-1"></a><span class="co">#Observamos que la variable</span></span>
-<span id="cb64-5"><a href="#cb64-5" aria-hidden="true" tabindex="-1"></a><span class="co">#Observamos que con estos 5 casos el raw.alpha es de 7.5</span></span>
+<span id="cb64-5"><a href="#cb64-5" aria-hidden="true" tabindex="-1"></a><span class="co">#Observamos que con estos 5 casos el raw.alpha es de 0.75</span></span>
 <span id="cb64-6"><a href="#cb64-6" aria-hidden="true" tabindex="-1"></a><span class="co">#lo que quiere decir que hay una confiabilidad aceptable </span></span>
 <span id="cb64-7"><a href="#cb64-7" aria-hidden="true" tabindex="-1"></a><span class="co">#si eliminamos algunos de estps de estos items la confianza disminuiría, así que se pueden construir</span></span>
 <span id="cb64-8"><a href="#cb64-8" aria-hidden="true" tabindex="-1"></a><span class="co">#una escala con estas.</span></span>
@@ -1023,7 +1094,569 @@ sats_colegios     0.01 0.14 0.08 0.70 0.07    0</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb67"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Min. 1st Qu.  Median    Mean 3rd Qu.    Max. </span></span>
 <span id="cb67-2"><a href="#cb67-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 5.00   15.00   18.00   16.76   20.00   25.00 </span></span>
-<span id="cb67-3"><a href="#cb67-3" aria-hidden="true" tabindex="-1"></a><span class="co">#Podemos observar que la mayor concentración de casos está en la categoría 18 y que sumado a un promedio de 16.76 según los descriptivos anteriores, podríamos afirmar que la calidad de vida en Chile es alta.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb67-3"><a href="#cb67-3" aria-hidden="true" tabindex="-1"></a><span class="co">#Podemos observar que la mayor concentración de casos está en la </span></span>
+<span id="cb67-4"><a href="#cb67-4" aria-hidden="true" tabindex="-1"></a><span class="co">#categoría 18 y que sumado a un promedio de 16.76 según los descriptivos </span></span>
+<span id="cb67-5"><a href="#cb67-5" aria-hidden="true" tabindex="-1"></a><span class="co">#anteriores, podríamos afirmar que la calidad de vida en Chile es alta.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="entrega-4" class="level2">
+<h2 class="anchored" data-anchor-id="entrega-4">Entrega 4</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a>proc_data <span class="ot">&lt;-</span> proc_data <span class="sc">%&gt;%</span></span>
+<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter_all</span>(<span class="fu">all_vars</span>(<span class="sc">!</span><span class="fu">is.na</span>(.) <span class="sc">&amp;</span> . <span class="sc">!=</span> <span class="sc">-</span><span class="dv">999</span> <span class="sc">&amp;</span> . <span class="sc">!=</span> <span class="sc">-</span><span class="dv">888</span>)) <span class="co">#Filtrar NA'S</span></span>
+<span id="cb68-3"><a href="#cb68-3" aria-hidden="true" tabindex="-1"></a><span class="fu">view_df</span>(proc_data,<span class="at">max.len =</span> <span class="dv">50</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<table data-quarto-postprocess="true" class="table table-sm table-striped small">
+<caption>Data frame: proc_data</caption>
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th" style="text-align: left; border-bottom: double; font-style: italic; font-weight: normal; padding: 0.2cm; vertical-align: top;">ID</td>
+<td data-quarto-table-cell-role="th" style="text-align: left; border-bottom: double; font-style: italic; font-weight: normal; padding: 0.2cm; vertical-align: top;">Name</td>
+<td data-quarto-table-cell-role="th" style="text-align: left; border-bottom: double; font-style: italic; font-weight: normal; padding: 0.2cm; vertical-align: top;">Label</td>
+<td data-quarto-table-cell-role="th" style="text-align: left; border-bottom: double; font-style: italic; font-weight: normal; padding: 0.2cm; vertical-align: top;">Values</td>
+<td data-quarto-table-cell-role="th" style="text-align: left; border-bottom: double; font-style: italic; font-weight: normal; padding: 0.2cm; vertical-align: top;">Value Labels</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">1</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">sats_seguridad</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">Grado de satisfaccion: Seguridad del barrio</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">-999<br>
+-888<br>
+1<br>
+2<br>
+3<br>
+4<br>
+5</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">No Responde (no leer)<br>
+No Sabe (no leer)<br>
+Totalmente insatisfecho<br>
+Insatisfecho<br>
+Ni satisfecho ni insatisfecho<br>
+Satisfecho<br>
+Totalmente satisfecho</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; padding: 0.2cm; vertical-align: top; background-color: #eeeeee;">2</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top; background-color: #eeeeee;">sats_conectividad</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top; background-color: #eeeeee;">Grado de satisfaccion: Conectividad</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top; background-color: #eeeeee;">-999<br>
+-888<br>
+1<br>
+2<br>
+3<br>
+4<br>
+5</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top; background-color: #eeeeee;">No Responde (no leer)<br>
+No Sabe (no leer)<br>
+Totalmente insatisfecho<br>
+Insatisfecho<br>
+Ni satisfecho ni insatisfecho<br>
+Satisfecho<br>
+Totalmente satisfecho</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">3</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">sats_averde</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">Grado de satisfaccion: Areas verdes y de<br>
+recreacion disponibles</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">-999<br>
+-888<br>
+1<br>
+2<br>
+3<br>
+4<br>
+5</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">No Responde (no leer)<br>
+No Sabe (no leer)<br>
+Totalmente insatisfecho<br>
+Insatisfecho<br>
+Ni satisfecho ni insatisfecho<br>
+Satisfecho<br>
+Totalmente satisfecho</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; padding: 0.2cm; vertical-align: top; background-color: #eeeeee;">4</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top; background-color: #eeeeee;">sats_limpieza</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top; background-color: #eeeeee;">Grado de satisfaccion: Limpieza y belleza del<br>
+barrio</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top; background-color: #eeeeee;">-999<br>
+-888<br>
+1<br>
+2<br>
+3<br>
+4<br>
+5</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top; background-color: #eeeeee;">No Responde (no leer)<br>
+No Sabe (no leer)<br>
+Totalmente insatisfecho<br>
+Insatisfecho<br>
+Ni satisfecho ni insatisfecho<br>
+Satisfecho<br>
+Totalmente satisfecho</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">5</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">sats_colegios</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">Grado de satisfaccion: Proximidad a colegios de<br>
+buena calidad</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">-999<br>
+-888<br>
+1<br>
+2<br>
+3<br>
+4<br>
+5</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">No Responde (no leer)<br>
+No Sabe (no leer)<br>
+Totalmente insatisfecho<br>
+Insatisfecho<br>
+Ni satisfecho ni insatisfecho<br>
+Satisfecho<br>
+Totalmente satisfecho</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; padding: 0.2cm; vertical-align: top; background-color: #eeeeee;">6</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top; background-color: #eeeeee;">percp_barrio</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top; background-color: #eeeeee;">Percepcion de evaluacion del barrio</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top; background-color: #eeeeee;">-999<br>
+-888<br>
+1<br>
+2<br>
+3<br>
+4<br>
+5</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top; background-color: #eeeeee;">No Responde (no leer)<br>
+No Sabe (no leer)<br>
+Muy negativamente<br>
+Negativamente<br>
+Ni positiva ni negativamente<br>
+Positivamente<br>
+Muy positivamente</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">7</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">percp_seguridad</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">Percepcion de seguridad del barrio</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">-999<br>
+-888<br>
+1<br>
+2<br>
+3<br>
+4<br>
+5</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">No Responde (no leer)<br>
+No Sabe (no leer)<br>
+Muy inseguro<br>
+Inseguro<br>
+Ni seguro ni inseguro<br>
+Seguro<br>
+Muy seguro</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; padding: 0.2cm; vertical-align: top; background-color: #eeeeee;">8</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top; background-color: #eeeeee;">frq_vecinosbasura</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top; background-color: #eeeeee;">Frecuencia: Problemas por vecinos botan basura o<br>
+similar</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top; background-color: #eeeeee;">-999<br>
+-888<br>
+1<br>
+2<br>
+3<br>
+4<br>
+5</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top; background-color: #eeeeee;">No Responde (no leer)<br>
+No Sabe (no leer)<br>
+Nunca<br>
+Pocas veces<br>
+Algunas veces<br>
+Muchas veces<br>
+Siempre</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">9</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">ingreso</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">Ingreso total del hogar (monto)</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">-999<br>
+-888</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">No Responde (no leer)<br>
+No Sabe (no leer)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; padding: 0.2cm; vertical-align: top; background-color: #eeeeee;">10</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top; background-color: #eeeeee;">comuna</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top; background-color: #eeeeee;">Comuna</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top; background-color: #eeeeee;"></td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top; background-color: #eeeeee;">&lt;output omitted&gt;</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">11</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">region</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">Region</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;"></td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">&lt;output omitted&gt;</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; padding: 0.2cm; vertical-align: top; background-color: #eeeeee;">12</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top; background-color: #eeeeee;">edad</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top; background-color: #eeeeee;">Edad del entrevistado</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top; background-color: #eeeeee;">-999<br>
+-888</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top; background-color: #eeeeee;">No Responde (no leer)<br>
+No Sabe (no leer)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">13</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">sexo</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">Sexo del entrevistado</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">1<br>
+2</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">Hombre<br>
+Mujer</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; padding: 0.2cm; vertical-align: top; background-color: #eeeeee;">14</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top; background-color: #eeeeee;">comunas_numericas</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top; background-color: #eeeeee;"></td>
+<td colspan="2" style="text-align: left; padding: 0.2cm; vertical-align: top; background-color: #eeeeee;"><em>range: 1-8</em></td>
+</tr>
+<tr class="even">
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">15</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">calidad_vida</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;"></td>
+<td colspan="2" style="text-align: left; padding: 0.2cm; vertical-align: top;"><em>range: 5-25</em></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Definir los límites del salario mínimo</span></span>
+<span id="cb69-2"><a href="#cb69-2" aria-hidden="true" tabindex="-1"></a>salario_minimo <span class="ot">&lt;-</span> <span class="dv">460000</span></span>
+<span id="cb69-3"><a href="#cb69-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-4"><a href="#cb69-4" aria-hidden="true" tabindex="-1"></a><span class="fu">frq</span>(proc_data<span class="sc">$</span>grupo_ingreso)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Unknown or uninitialised column: `grupo_ingreso`.</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>NULL</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a>proc_data<span class="sc">$</span>grupo_ingreso <span class="ot">&lt;-</span> <span class="fu">cut</span>(</span>
+<span id="cb72-2"><a href="#cb72-2" aria-hidden="true" tabindex="-1"></a>  proc_data<span class="sc">$</span>ingreso,</span>
+<span id="cb72-3"><a href="#cb72-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">breaks =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="cn">Inf</span>, salario_minimo, <span class="dv">3</span> <span class="sc">*</span> salario_minimo, <span class="cn">Inf</span>),</span>
+<span id="cb72-4"><a href="#cb72-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Bajo"</span>, <span class="st">"Medio"</span>, <span class="st">"Alto"</span>),</span>
+<span id="cb72-5"><a href="#cb72-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">right =</span> <span class="cn">TRUE</span></span>
+<span id="cb72-6"><a href="#cb72-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb72-7"><a href="#cb72-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb72-8"><a href="#cb72-8" aria-hidden="true" tabindex="-1"></a><span class="fu">frq</span>(proc_data<span class="sc">$</span>grupo_ingreso)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>x &lt;categorical&gt; 
+# total N=286 valid N=286 mean=1.72 sd=0.66
+
+Value |   N | Raw % | Valid % | Cum. %
+--------------------------------------
+Bajo  | 114 | 39.86 |   39.86 |  39.86
+Medio | 138 | 48.25 |   48.25 |  88.11
+Alto  |  34 | 11.89 |   11.89 | 100.00
+&lt;NA&gt;  |   0 |  0.00 |    &lt;NA&gt; |   &lt;NA&gt;</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a>proc_data <span class="ot">&lt;-</span> <span class="fu">na.omit</span>(proc_data)</span>
+<span id="cb74-2"><a href="#cb74-2" aria-hidden="true" tabindex="-1"></a>reg1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(calidad_vida <span class="sc">~</span> <span class="dv">1</span>, <span class="at">data=</span>proc_data)</span>
+<span id="cb74-3"><a href="#cb74-3" aria-hidden="true" tabindex="-1"></a><span class="fu">stargazer</span>(reg1, <span class="at">type=</span><span class="st">"text"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+===============================================
+                        Dependent variable:    
+                    ---------------------------
+                           calidad_vida        
+-----------------------------------------------
+Constant                     16.759***         
+                              (0.206)          
+                                               
+-----------------------------------------------
+Observations                    286            
+R2                             0.000           
+Adjusted R2                    0.000           
+Residual Std. Error      3.480 (df = 285)      
+===============================================
+Note:               *p&lt;0.1; **p&lt;0.05; ***p&lt;0.01</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="co">#ANALISISI</span></span>
+<span id="cb76-2"><a href="#cb76-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb76-3"><a href="#cb76-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb76-4"><a href="#cb76-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb76-5"><a href="#cb76-5" aria-hidden="true" tabindex="-1"></a><span class="co">#REGRESIÓN LINEAL SIMPLE</span></span>
+<span id="cb76-6"><a href="#cb76-6" aria-hidden="true" tabindex="-1"></a>reg2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(calidad_vida <span class="sc">~</span> edad, <span class="at">data=</span>proc_data)</span>
+<span id="cb76-7"><a href="#cb76-7" aria-hidden="true" tabindex="-1"></a>reg3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(calidad_vida <span class="sc">~</span> grupo_ingreso, <span class="at">data=</span>proc_data)</span>
+<span id="cb76-8"><a href="#cb76-8" aria-hidden="true" tabindex="-1"></a>reg4 <span class="ot">&lt;-</span> <span class="fu">lm</span>(calidad_vida <span class="sc">~</span> sexo, <span class="at">data=</span>proc_data)</span>
+<span id="cb76-9"><a href="#cb76-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb76-10"><a href="#cb76-10" aria-hidden="true" tabindex="-1"></a><span class="fu">knitreg</span>(<span class="fu">list</span>(reg2, reg3, reg4), </span>
+<span id="cb76-11"><a href="#cb76-11" aria-hidden="true" tabindex="-1"></a>        <span class="at">custom.model.names =</span> <span class="fu">c</span>(<span class="st">"Modelo 1"</span>,</span>
+<span id="cb76-12"><a href="#cb76-12" aria-hidden="true" tabindex="-1"></a>                               <span class="st">"Modelo 2"</span>,</span>
+<span id="cb76-13"><a href="#cb76-13" aria-hidden="true" tabindex="-1"></a>                               <span class="st">"Modelo 3"</span>),</span>
+<span id="cb76-14"><a href="#cb76-14" aria-hidden="true" tabindex="-1"></a>        <span class="at">custom.note =</span> <span class="st">"*** p &lt; 0.001; ** p &lt; 0.01; * p &lt; 0.05"</span>,</span>
+<span id="cb76-15"><a href="#cb76-15" aria-hidden="true" tabindex="-1"></a>        <span class="at">custom.coef.names =</span> <span class="fu">c</span>(<span class="st">"Intercepto"</span>, </span>
+<span id="cb76-16"><a href="#cb76-16" aria-hidden="true" tabindex="-1"></a>                              <span class="st">"Edad"</span>,</span>
+<span id="cb76-17"><a href="#cb76-17" aria-hidden="true" tabindex="-1"></a>                              <span class="st">"Ingreso Medio &lt;br&gt; &lt;i&gt;(Ingreso Bajo)&lt;/i&gt;"</span>, </span>
+<span id="cb76-18"><a href="#cb76-18" aria-hidden="true" tabindex="-1"></a>                              <span class="st">"Ingreso Alto"</span>, </span>
+<span id="cb76-19"><a href="#cb76-19" aria-hidden="true" tabindex="-1"></a>                              <span class="st">"Mujer &lt;br&gt; &lt;i&gt;(Ref. Hombre)&lt;/i&gt;"</span>),</span>
+<span id="cb76-20"><a href="#cb76-20" aria-hidden="true" tabindex="-1"></a>        <span class="at">caption =</span> <span class="st">"Calidad de vida"</span>,</span>
+<span id="cb76-21"><a href="#cb76-21" aria-hidden="true" tabindex="-1"></a>        <span class="at">caption.above =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;table class="texreg" style="margin: 10px auto;border-collapse: collapse;border-spacing: 0px;color: #000000;border-top: 2px solid #000000;"&gt;
+&lt;caption&gt;Calidad de vida&lt;/caption&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style="padding-left: 5px;padding-right: 5px;"&gt;&amp;nbsp;&lt;/th&gt;
+&lt;th style="padding-left: 5px;padding-right: 5px;"&gt;Modelo 1&lt;/th&gt;
+&lt;th style="padding-left: 5px;padding-right: 5px;"&gt;Modelo 2&lt;/th&gt;
+&lt;th style="padding-left: 5px;padding-right: 5px;"&gt;Modelo 3&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr style="border-top: 1px solid #000000;"&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;Intercepto&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;16.26&lt;sup&gt;&amp;#42;&amp;#42;&amp;#42;&lt;/sup&gt;&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;16.05&lt;sup&gt;&amp;#42;&amp;#42;&amp;#42;&lt;/sup&gt;&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;18.02&lt;sup&gt;&amp;#42;&amp;#42;&amp;#42;&lt;/sup&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;&amp;nbsp;&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;(0.63)&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;(0.32)&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;(0.73)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;Edad&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;0.01&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;&amp;nbsp;&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;&amp;nbsp;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;&amp;nbsp;&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;(0.01)&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;&amp;nbsp;&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;&amp;nbsp;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;Ingreso Medio &lt;br&gt; &lt;i&gt;(Ingreso Bajo)&lt;/i&gt;&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;&amp;nbsp;&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;0.83&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;&amp;nbsp;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;&amp;nbsp;&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;&amp;nbsp;&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;(0.43)&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;&amp;nbsp;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;Ingreso Alto&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;&amp;nbsp;&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;2.57&lt;sup&gt;&amp;#42;&amp;#42;&amp;#42;&lt;/sup&gt;&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;&amp;nbsp;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;&amp;nbsp;&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;&amp;nbsp;&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;(0.66)&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;&amp;nbsp;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;Mujer &lt;br&gt; &lt;i&gt;(Ref. Hombre)&lt;/i&gt;&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;&amp;nbsp;&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;&amp;nbsp;&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;-0.77&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;&amp;nbsp;&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;&amp;nbsp;&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;&amp;nbsp;&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;(0.43)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr style="border-top: 1px solid #000000;"&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;R&lt;sup&gt;2&lt;/sup&gt;&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;0.00&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;0.05&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;0.01&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;Adj. R&lt;sup&gt;2&lt;/sup&gt;&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;-0.00&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;0.04&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;0.01&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr style="border-bottom: 2px solid #000000;"&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;Num. obs.&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;286&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;286&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;286&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;tfoot&gt;
+&lt;tr&gt;
+&lt;td style="font-size: 0.8em;" colspan="4"&gt;*** p &lt; 0.001; ** p &lt; 0.01; * p &lt; 0.05&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tfoot&gt;
+&lt;/table&gt;</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="co">#REGRESION LINEAL MULTIPLE</span></span>
+<span id="cb78-2"><a href="#cb78-2" aria-hidden="true" tabindex="-1"></a>reg5 <span class="ot">&lt;-</span> <span class="fu">lm</span>(calidad_vida <span class="sc">~</span> edad <span class="sc">+</span> grupo_ingreso, <span class="at">data=</span>proc_data)</span>
+<span id="cb78-3"><a href="#cb78-3" aria-hidden="true" tabindex="-1"></a>reg6 <span class="ot">&lt;-</span> <span class="fu">lm</span>(calidad_vida <span class="sc">~</span> edad <span class="sc">+</span> sexo, <span class="at">data=</span>proc_data)</span>
+<span id="cb78-4"><a href="#cb78-4" aria-hidden="true" tabindex="-1"></a>reg7 <span class="ot">&lt;-</span> <span class="fu">lm</span>(calidad_vida <span class="sc">~</span> grupo_ingreso <span class="sc">+</span> sexo, <span class="at">data=</span>proc_data)</span>
+<span id="cb78-5"><a href="#cb78-5" aria-hidden="true" tabindex="-1"></a>reg8 <span class="ot">&lt;-</span> <span class="fu">lm</span>(calidad_vida <span class="sc">~</span> edad <span class="sc">+</span> grupo_ingreso <span class="sc">+</span> sexo, <span class="at">data=</span>proc_data)</span>
+<span id="cb78-6"><a href="#cb78-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb78-7"><a href="#cb78-7" aria-hidden="true" tabindex="-1"></a><span class="fu">knitreg</span>(<span class="fu">list</span>(reg5, reg6, reg7, reg8), </span>
+<span id="cb78-8"><a href="#cb78-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">custom.model.names =</span> <span class="fu">c</span>(<span class="st">"Modelo 1"</span>,</span>
+<span id="cb78-9"><a href="#cb78-9" aria-hidden="true" tabindex="-1"></a>                               <span class="st">"Modelo 2"</span>,</span>
+<span id="cb78-10"><a href="#cb78-10" aria-hidden="true" tabindex="-1"></a>                               <span class="st">"Modelo 3"</span>,</span>
+<span id="cb78-11"><a href="#cb78-11" aria-hidden="true" tabindex="-1"></a>                               <span class="st">"Modelo 4"</span>),</span>
+<span id="cb78-12"><a href="#cb78-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">custom.note =</span> <span class="st">"*** p &lt; 0.001; ** p &lt; 0.01; * p &lt; 0.05"</span>,</span>
+<span id="cb78-13"><a href="#cb78-13" aria-hidden="true" tabindex="-1"></a>        <span class="at">custom.coef.names =</span> <span class="fu">c</span>(<span class="st">"Intercepto"</span>, </span>
+<span id="cb78-14"><a href="#cb78-14" aria-hidden="true" tabindex="-1"></a>                              <span class="st">"Edad"</span>,</span>
+<span id="cb78-15"><a href="#cb78-15" aria-hidden="true" tabindex="-1"></a>                              <span class="st">"Ingreso Medio &lt;br&gt; &lt;i&gt;(Ref. Ingreso Bajo)&lt;/i&gt;"</span>, </span>
+<span id="cb78-16"><a href="#cb78-16" aria-hidden="true" tabindex="-1"></a>                              <span class="st">"Ingreso Alto"</span>, </span>
+<span id="cb78-17"><a href="#cb78-17" aria-hidden="true" tabindex="-1"></a>                              <span class="st">"Mujer &lt;br&gt; &lt;i&gt;(Ref. Hombre)&lt;/i&gt;"</span>),</span>
+<span id="cb78-18"><a href="#cb78-18" aria-hidden="true" tabindex="-1"></a>        <span class="at">caption =</span> <span class="st">"Calidad de vida"</span>,</span>
+<span id="cb78-19"><a href="#cb78-19" aria-hidden="true" tabindex="-1"></a>        <span class="at">caption.above =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;table class="texreg" style="margin: 10px auto;border-collapse: collapse;border-spacing: 0px;color: #000000;border-top: 2px solid #000000;"&gt;
+&lt;caption&gt;Calidad de vida&lt;/caption&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style="padding-left: 5px;padding-right: 5px;"&gt;&amp;nbsp;&lt;/th&gt;
+&lt;th style="padding-left: 5px;padding-right: 5px;"&gt;Modelo 1&lt;/th&gt;
+&lt;th style="padding-left: 5px;padding-right: 5px;"&gt;Modelo 2&lt;/th&gt;
+&lt;th style="padding-left: 5px;padding-right: 5px;"&gt;Modelo 3&lt;/th&gt;
+&lt;th style="padding-left: 5px;padding-right: 5px;"&gt;Modelo 4&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr style="border-top: 1px solid #000000;"&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;Intercepto&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;15.10&lt;sup&gt;&amp;#42;&amp;#42;&amp;#42;&lt;/sup&gt;&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;17.46&lt;sup&gt;&amp;#42;&amp;#42;&amp;#42;&lt;/sup&gt;&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;17.16&lt;sup&gt;&amp;#42;&amp;#42;&amp;#42;&lt;/sup&gt;&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;16.23&lt;sup&gt;&amp;#42;&amp;#42;&amp;#42;&lt;/sup&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;&amp;nbsp;&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;(0.71)&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;(0.87)&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;(0.80)&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;(0.96)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;Edad&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;0.02&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;0.02&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;&amp;nbsp;&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;0.02&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;&amp;nbsp;&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;(0.01)&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;(0.01)&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;&amp;nbsp;&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;(0.01)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;Ingreso Medio &lt;br&gt; &lt;i&gt;(Ref. Ingreso Bajo)&lt;/i&gt;&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;0.95&lt;sup&gt;&amp;#42;&lt;/sup&gt;&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;&amp;nbsp;&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;0.73&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;0.84&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;&amp;nbsp;&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;(0.44)&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;&amp;nbsp;&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;(0.44)&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;(0.44)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;Ingreso Alto&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;2.70&lt;sup&gt;&amp;#42;&amp;#42;&amp;#42;&lt;/sup&gt;&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;&amp;nbsp;&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;2.49&lt;sup&gt;&amp;#42;&amp;#42;&amp;#42;&lt;/sup&gt;&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;2.64&lt;sup&gt;&amp;#42;&amp;#42;&amp;#42;&lt;/sup&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;&amp;nbsp;&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;(0.67)&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;&amp;nbsp;&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;(0.66)&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;(0.67)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;Mujer &lt;br&gt; &lt;i&gt;(Ref. Hombre)&lt;/i&gt;&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;&amp;nbsp;&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;-0.86&lt;sup&gt;&amp;#42;&lt;/sup&gt;&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;-0.64&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;-0.75&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;&amp;nbsp;&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;&amp;nbsp;&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;(0.43)&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;(0.42)&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;(0.43)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr style="border-top: 1px solid #000000;"&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;R&lt;sup&gt;2&lt;/sup&gt;&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;0.06&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;0.02&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;0.06&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;0.07&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;Adj. R&lt;sup&gt;2&lt;/sup&gt;&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;0.05&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;0.01&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;0.05&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;0.06&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr style="border-bottom: 2px solid #000000;"&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;Num. obs.&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;286&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;286&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;286&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;286&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;tfoot&gt;
+&lt;tr&gt;
+&lt;td style="font-size: 0.8em;" colspan="5"&gt;*** p &lt; 0.001; ** p &lt; 0.01; * p &lt; 0.05&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tfoot&gt;
+&lt;/table&gt;</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_model</span>(reg8, </span>
+<span id="cb80-2"><a href="#cb80-2" aria-hidden="true" tabindex="-1"></a>           <span class="at">title =</span> <span class="st">""</span>, <span class="co">#quitar titulo</span></span>
+<span id="cb80-3"><a href="#cb80-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">show.values =</span> <span class="cn">TRUE</span>, <span class="co">#mostrar valor de efectos</span></span>
+<span id="cb80-4"><a href="#cb80-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">dot.size =</span> <span class="dv">3</span>, <span class="co">#tamaño circulos</span></span>
+<span id="cb80-5"><a href="#cb80-5" aria-hidden="true" tabindex="-1"></a>           <span class="at">line.size =</span> <span class="dv">1</span>, <span class="co">#tamaño CI</span></span>
+<span id="cb80-6"><a href="#cb80-6" aria-hidden="true" tabindex="-1"></a>           <span class="at">value.size =</span> <span class="dv">4</span>, <span class="co">#tamaño valor efectoss</span></span>
+<span id="cb80-7"><a href="#cb80-7" aria-hidden="true" tabindex="-1"></a>           <span class="at">spacing =</span> <span class="dv">1</span>, <span class="co">#espacio entre efectos</span></span>
+<span id="cb80-8"><a href="#cb80-8" aria-hidden="true" tabindex="-1"></a>           <span class="at">vline.color =</span> <span class="st">"red"</span>, <span class="co"># linea roja en punto neutro (0)</span></span>
+<span id="cb80-9"><a href="#cb80-9" aria-hidden="true" tabindex="-1"></a>           <span class="at">axis.labels =</span> <span class="fu">rev</span>(<span class="fu">c</span>(<span class="st">"Edad"</span>,</span>
+<span id="cb80-10"><a href="#cb80-10" aria-hidden="true" tabindex="-1"></a>                               <span class="st">"Ingresos"</span>, </span>
+<span id="cb80-11"><a href="#cb80-11" aria-hidden="true" tabindex="-1"></a>                               <span class="st">"Mujer"</span>)), <span class="co">#con rev porque automatico los tira en otro orden</span></span>
+<span id="cb80-12"><a href="#cb80-12" aria-hidden="true" tabindex="-1"></a>           <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span> <span class="co"># variables dependientes</span></span>
+<span id="cb80-13"><a href="#cb80-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="entrega22_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
 </div>
 
 </section>
