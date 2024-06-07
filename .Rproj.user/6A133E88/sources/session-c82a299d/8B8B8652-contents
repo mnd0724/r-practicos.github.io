@@ -32,10 +32,18 @@ pacman::p_load(sjlabelled,
                kableExtra, #Tablas
                sjPlot, #Tablas y gráficos
                corrplot, # Correlaciones
-               sessioninfo, 
+               sessioninfo, # Información de la sesión de trabajo
                ggplot2,
                haven,
-               GGally) # Para la mayoría de los gráficos
+               GGally,
+               ggpubr,
+               textreg,
+               car,
+               fastDummies,
+               sjlabelled,
+               ggeffects,
+               texreg) 
+
 rm(list=ls())       # borrar todos los objetos en el espacio de trabajo
 options(scipen=999) # valores sin notación científica#Cargar base de datos
 
@@ -54,7 +62,9 @@ proc_data <- data %>% select(t06_01,
                              t11_04,
                              m29,
                              comuna,
-                             region)
+                             region,
+                             m0_edad,
+                             m0_sexo)
 view(proc_data)
 sjmisc::descr(proc_data)
 proc_data <- proc_data %>% rename("sats_seguridad" =t06_01,
@@ -65,7 +75,9 @@ proc_data <- proc_data %>% rename("sats_seguridad" =t06_01,
                                   "percp_barrio"=t08,
                                   "percp_seguridad"=t10,
                                   "frq_vecinosbasura"=t11_04,
-                                  "ingreso"=m29) # Ingresos total del hogar
+                                  "ingreso"=m29,
+                                  "edad"=m0_edad,
+                                  "sexo"=m0_sexo)
 
 
 #VER LOS NOMBRES DE LAS VARIABLES
@@ -240,7 +252,7 @@ psych::alpha(dplyr::select(proc_data, sats_seguridad, sats_conectividad, sats_av
 #son más cercanos a 1, existe una mayor confiabilidad 
 #cuando el valor es mayor a 0.7 se considera como un valor aceptable
 #Observamos que la variable
-#Observamos que con estos 5 casos el raw.alpha es de 7.5
+#Observamos que con estos 5 casos el raw.alpha es de 0.75
 #lo que quiere decir que hay una confiabilidad aceptable 
 #si eliminamos algunos de estps de estos items la confianza disminuiría, así que se pueden construir
 #una escala con estas.
@@ -258,6 +270,96 @@ ggplot(proc_data, aes(x = calidad_vida)) +
 
 #Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
   # 5.00   15.00   18.00   16.76   20.00   25.00 
-#Podemos observar que la mayor concentración de casos está en la categoría 18 y que sumado a un promedio de 16.76 según los descriptivos anteriores, podríamos afirmar que la calidad de vida en Chile es alta.
+#Podemos observar que la mayor concentración de casos está en la 
+#categoría 18 y que sumado a un promedio de 16.76 según los descriptivos 
+#anteriores, podríamos afirmar que la calidad de vida en Chile es alta.
+
+```
+
+## Entrega 4
+
+```{r}
+proc_data <- proc_data %>%
+  filter_all(all_vars(!is.na(.) & . != -999 & . != -888)) #Filtrar NA'S
+view_df(proc_data,max.len = 50)
+
+# Definir los límites del salario mínimo
+salario_minimo <- 460000
+
+frq(proc_data$grupo_ingreso)
+proc_data$grupo_ingreso <- cut(
+  proc_data$ingreso,
+  breaks = c(-Inf, salario_minimo, 3 * salario_minimo, Inf),
+  labels = c("Bajo", "Medio", "Alto"),
+  right = TRUE
+)
+
+frq(proc_data$grupo_ingreso)
+proc_data <- na.omit(proc_data)
+reg1 <- lm(calidad_vida ~ 1, data=proc_data)
+stargazer(reg1, type="text")
+
+#ANALISISI
+
+
+
+#REGRESIÓN LINEAL SIMPLE
+reg2 <- lm(calidad_vida ~ edad, data=proc_data)
+reg3 <- lm(calidad_vida ~ grupo_ingreso, data=proc_data)
+reg4 <- lm(calidad_vida ~ sexo, data=proc_data)
+
+knitreg(list(reg2, reg3, reg4), 
+        custom.model.names = c("Modelo 1",
+                               "Modelo 2",
+                               "Modelo 3"),
+        custom.note = "*** p < 0.001; ** p < 0.01; * p < 0.05",
+        custom.coef.names = c("Intercepto", 
+                              "Edad",
+                              "Ingreso Medio <br> <i>(Ingreso Bajo)</i>", 
+                              "Ingreso Alto", 
+                              "Mujer <br> <i>(Ref. Hombre)</i>"),
+        caption = "Calidad de vida",
+        caption.above = TRUE)
+
+
+
+
+
+
+
+#REGRESION LINEAL MULTIPLE
+reg5 <- lm(calidad_vida ~ edad + grupo_ingreso, data=proc_data)
+reg6 <- lm(calidad_vida ~ edad + sexo, data=proc_data)
+reg7 <- lm(calidad_vida ~ grupo_ingreso + sexo, data=proc_data)
+reg8 <- lm(calidad_vida ~ edad + grupo_ingreso + sexo, data=proc_data)
+
+knitreg(list(reg5, reg6, reg7, reg8), 
+        custom.model.names = c("Modelo 1",
+                               "Modelo 2",
+                               "Modelo 3",
+                               "Modelo 4"),
+        custom.note = "*** p < 0.001; ** p < 0.01; * p < 0.05",
+        custom.coef.names = c("Intercepto", 
+                              "Edad",
+                              "Ingreso Medio <br> <i>(Ref. Ingreso Bajo)</i>", 
+                              "Ingreso Alto", 
+                              "Mujer <br> <i>(Ref. Hombre)</i>"),
+        caption = "Calidad de vida",
+        caption.above = TRUE)
+
+
+plot_model(reg8, 
+           title = "", #quitar titulo
+           show.values = TRUE, #mostrar valor de efectos
+           dot.size = 3, #tamaño circulos
+           line.size = 1, #tamaño CI
+           value.size = 4, #tamaño valor efectoss
+           spacing = 1, #espacio entre efectos
+           vline.color = "red", # linea roja en punto neutro (0)
+           axis.labels = rev(c("Edad",
+                               "Ingresos", 
+                               "Mujer")), #con rev porque automatico los tira en otro orden
+           show.legend = FALSE) + # variables dependientes
+  theme_bw()
 
 ```
