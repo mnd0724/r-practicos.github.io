@@ -11,14 +11,17 @@ editor: visual
 # Introducción
 En esta presentación lo que se busca es el análisis y la relación que existe entre: Ingresos y Calidad de vida, y como esto influye en la perspectiva de los individuos sobre los espacios en los que ellos viven. Por lo mismo es importante entender la forma en la que están segregadas las comunas dentro del Gran Santiago. También es importante como la segregación socioespacial que existe en la región es un factor determinante para el acceso y cercanía que las personas tienen a las áreas verdes
 
-#Análisis
+# Calidad de vida?
+Para formar esta variable sumamos todos aquellas preguntas que hacian referencia a la satisfacción con los
+
+# Análisis
 
 ## Gráficos
-
 ![](output/graphs/graph3.png)
 
 ## Gráficos 
+
 ![](output/graphs/graph2.png)
-### Gráficos
+## Gráficos
 
 ![](output/graphs/graph1.png)
