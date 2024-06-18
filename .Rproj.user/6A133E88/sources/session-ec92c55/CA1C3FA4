@@ -1,0 +1,32 @@
+{
+    "id": "CA1C3FA4",
+    "path": "~/GitHub/r-practicos.github.io/presentacion1.qmd",
+    "project_path": "presentacion1.qmd",
+    "type": "quarto_markdown",
+    "hash": "4195491175",
+    "contents": "",
+    "dirty": false,
+    "created": 1718672714015.0,
+    "source_on_save": false,
+    "relative_order": 5,
+    "properties": {
+        "rmdVisualMode": "false",
+        "rmdVisualWrapConfigured": "true",
+        "tempName": "Untitled3",
+        "source_window_id": "",
+        "Source": "Source",
+        "cursorPosition": "21,3",
+        "scrollLine": "21",
+        "docOutlineVisible": "1",
+        "rmdVisualCollapsedChunks": "",
+        "rmdVisualModeLocation": "2:0"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1718682915,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1718682915650,
+    "read_only": false,
+    "read_only_alternatives": []
+}
