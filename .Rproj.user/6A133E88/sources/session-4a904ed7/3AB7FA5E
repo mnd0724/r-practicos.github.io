@@ -1,0 +1,28 @@
+{
+    "id": "3AB7FA5E",
+    "path": null,
+    "project_path": null,
+    "type": "object_explorer",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1718684815467.0,
+    "source_on_save": false,
+    "relative_order": 5,
+    "properties": {
+        "id": "055909e58a944afb8ad5979fc3351cc8",
+        "name": "graph6",
+        "title": "graph6",
+        "language": "R",
+        "source_window_id": "",
+        "Source": "Source"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 3151034214152,
+    "encoding": "",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1718684815467,
+    "read_only": false,
+    "read_only_alternatives": []
+}

@@ -1,0 +1,17 @@
+"0","plot_model(reg8, 
+           title = """", #quitar titulo
+           show.values = TRUE, #mostrar valor de efectos
+           dot.size = 3, #tamaño circulos
+           line.size = 1, #tamaño CI
+           value.size = 4, #tamaño valor efectoss
+           spacing = 1, #espacio entre efectos
+           vline.color = ""red"", # linea roja en punto neutro (0)
+           axis.labels = rev(c(""Edad"",
+                               ""Ingresos"", 
+                               ""Mujer"")), #con rev porque automatico los tira en otro orden
+           show.legend = FALSE) + # variables dependientes
+  theme_bw()
+"
+"2","Error in plot_model(reg8, title = """", show.values = TRUE, dot.size = 3,  : 
+  no se pudo encontrar la función ""plot_model""
+"
