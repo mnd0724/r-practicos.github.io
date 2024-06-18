@@ -160,7 +160,7 @@ for (i in 1:length(nombres_comunas)) {
   proc_data$comunas_numericas[proc_data$comuna == nombres_comunas[i]] <- valores_numericos[i]
 }
 
-ggplot(proc_data, aes(x = comuna, y = sats_averde, fill = comuna)) +
+graph4 <- ggplot(proc_data, aes(x = comuna, y = sats_averde, fill = comuna)) +
   geom_bar(stat = "identity") +  # Utilizar stat = "identity" para usar los valores exactos de y
   labs(x = "Comuna", y = "Satisfacción con áreas verdes", title = "Satisfacción con áreas verdes por comuna") +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))  # Rotar las etiquetas del eje x para mejor legibilidad
@@ -175,14 +175,14 @@ min_valor <- min(proc_data$ingreso)
 # Imprimir el valor mínimo
 print(min_valor)
 
-ggplot(proc_data, aes(x = comuna, y = ingreso)) +
+graph5 <- ggplot(proc_data, aes(x = comuna, y = ingreso)) +
   geom_point() +  # Agregar puntos al gráfico
   labs(x = "Comuna", y = "Ingresos", title = "Gráfico de Dispersión de Ingresos por Comuna") +
   theme(axis.text.x = element_text(angle = 45, hjust = 1)) +  # Rotar las etiquetas del eje x para mejor legibilidad
   ylim(0, 8000000)
 
 # Crear el gráfico de barras con escala logarítmica en el eje y y etiquetas personalizadas
-ggplot(proc_data, aes(x = comuna, y = ingreso, fill = comuna)) +
+graph6 <- ggplot(proc_data, aes(x = comuna, y = ingreso, fill = comuna)) +
   geom_bar(stat = "identity") +  # Utilizar stat = "identity" para usar los valores exactos de y
   labs(x = "Comuna", y = "Ingresos", title = "Ingresos por Comuna") +
   theme(axis.text.x = element_text(angle = 45, hjust = 1)) +  # Rotar las etiquetas del eje x para mejor legibilidad
@@ -311,7 +311,7 @@ knitreg(list(reg5, reg6, reg7, reg8),
         caption.above = TRUE)
 
 
-plot_model(reg8, 
+graph7 <- plot_model(reg8, 
            title = "", #quitar titulo
            show.values = TRUE, #mostrar valor de efectos
            dot.size = 3, #tamaño circulos
@@ -327,4 +327,7 @@ plot_model(reg8,
 ggsave(graph1, file="output/graphs/graph1.png")
 ggsave(graph2, file="output/graphs/graph2.png")
 ggsave(graph3, file="output/graphs/graph3.png")
-
+ggsave(graph4, file="output/graphs/graph4.png")
+ggsave(graph5, file="output/graphs/graph5.png")
+ggsave(graph6, file="output/graphs/graph6.png")
+ggsave(graph7, file="output/graphs/graph7.png")

@@ -31,8 +31,15 @@ A medida que avance en el análisis, tuve que cambiar la perspectiva del trabajo
 ## Disperción de ingresos por comuna
 ![](output/graphs/graph5.png)
 
+## Análisis 
+Observamos que; Providencia, Las Condes y La Florida, son las comunas que cuentn con mayor ingresos a diferencia de las otras. Con un caso exepcional en Puente Alto donde sólo una persona ganaba 8 millones de pesos.
+
 ## Gráficos
+
 ![](output/graphs/graph3.png)
+
+## Análisis 
+La Figura nos muestra la distribución de nuestra escala de Calidad de Vida que construimos. En general, la mayor concentración de casos está en la categoría 16 y que sumado a un promedio de 16.76 según los descriptivos anteriores, podríamos afirmar que la calidad de vida es alta en las comunas que estamos analizando.
 
 ## Gráficos 
 ![](output/graphs/graph2.png)
