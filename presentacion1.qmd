@@ -53,5 +53,5 @@ La Figura nos muestra la distribución de nuestra escala de Calidad de Vida que 
 ![](output/graphs/graph1.png)
 
 
-#Regresion lineal
+# Regresion lineal
 ![](output/graphs/graph10.png)
