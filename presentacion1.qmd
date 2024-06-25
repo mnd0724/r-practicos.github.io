@@ -45,13 +45,6 @@ Observamos que; Providencia, Las Condes y La Florida, son las comunas que cuentn
 ## Análisis 
 La Figura nos muestra la distribución de nuestra escala de Calidad de Vida que construimos. En general, la mayor concentración de casos está en la categoría 16 y que sumado a un promedio de 16.76 según los descriptivos anteriores, podríamos afirmar que la calidad de vida es alta en las comunas que estamos analizando.
 
-## Gráficos 
-![](output/graphs/graph2.png)
 
-
-## Gráficos
-![](output/graphs/graph1.png)
-
-
-# Regresion lineal
+## Regresión lineal
 ![](output/graphs/graph10.png)

@@ -6,16 +6,17 @@ editor: visual
 ---
 
 # Introducción
+
 "Las áreas de alta densidad en la periferia carecen de áreas verdes, lo que implica que las políticas de densificación deben equilibrar las tasas de densidad y abordar las diferencias espaciales en la provisión de servicios sociales y comodidades ambientales" (Aquino and Gainza 2014).
 
 # Introducción
+
 En esta presentación lo que se busca es el análisis y la relación que existe entre: Ingresos y Calidad de vida, y como esto influye en la perspectiva de los individuos sobre los espacios en los que ellos viven. Por lo mismo es importante entender la forma en la que están segregadas las comunas dentro del Gran Santiago. También es importante como la segregación socioespacial que existe en la región es un factor determinante para el acceso y cercanía que las personas tienen a las áreas verdes
 
-#Hipotesis
-A mayores niveles de ingresos, la calidad de vida de los individuos mejora significativamente, debido a un mayor acceso a recursos y servicios básicos como educación, salud, vivienda y recreación.
-
+#Hipotesis A mayores niveles de ingresos, la calidad de vida de los individuos mejora significativamente, debido a un mayor acceso a recursos y servicios básicos como educación, salud, vivienda y recreación.
 
 # ¿Calidad de vida?
+
 Para formar esta variable sumamos todos aquellas preguntas que hacian referencia a la satisfacción con los espacios que rodean a los vecinos de las diferentes comunas. En este caso, tomamos la satisfacción con las áreas verdes, la limpieza, la conectividad y la seguridad.
 
 ## A medida que avanzamos en el análisis...
@@ -28,30 +29,26 @@ A medida que avance en el análisis, tuve que cambiar la perspectiva del trabajo
 
 ![](output/graphs/graph4.png)
 
-
 ## Ingresos por comuna
+
 ![](output/graphs/graph6.png)
 
 ## Disperción de ingresos por comuna
+
 ![](output/graphs/graph5.png)
 
-## Análisis 
+## Análisis
+
 Observamos que; Providencia, Las Condes y La Florida, son las comunas que cuentn con mayor ingresos a diferencia de las otras. Con un caso exepcional en Puente Alto donde sólo una persona ganaba 8 millones de pesos.
 
 ## Gráficos
 
 ![](output/graphs/graph3.png)
 
-## Análisis 
+## Análisis
+
 La Figura nos muestra la distribución de nuestra escala de Calidad de Vida que construimos. En general, la mayor concentración de casos está en la categoría 16 y que sumado a un promedio de 16.76 según los descriptivos anteriores, podríamos afirmar que la calidad de vida es alta en las comunas que estamos analizando.
 
-## Gráficos 
-![](output/graphs/graph2.png)
+## Regresión lineal
 
-
-## Gráficos
-![](output/graphs/graph1.png)
-
-
-# Regresion lineal
 ![](output/graphs/graph10.png)
